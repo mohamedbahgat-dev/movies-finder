@@ -6,3 +6,8 @@ You can search your favourite movies or series and display name, title, poster, 
 
 ## functionality
 You can search by IMDB id or movie title or year of release.
+
+## version
+
+V.1.0
+
