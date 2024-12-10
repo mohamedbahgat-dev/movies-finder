@@ -4,3 +4,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* #card-container:checked ~ #movie-data {
+  display: block;
+  animation: fadeIn 2s;
+}
+
+#card-container:hover + #movie-image {
+  height: 100px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+} */
