@@ -7,6 +7,7 @@ const Snackbar = () => {
     const [messageType, setMessageType] = useState('')
 
 
+
     useEffect(() => {
 
         const unsubscribe = useMessageStore.subscribe(({ message, messageType }) => {
@@ -18,20 +19,21 @@ const Snackbar = () => {
                 setMessageType('')
             }, 3000)
 
-            return clearTimeout(timer)
+            return () => clearTimeout(timer)
+
         }, state => [state.message, state.messageType]);
 
-        return unsubscribe()
+        return () => unsubscribe()
 
-    })
+    }, [])
 
     return (
-        <div className="">
+
+        <div className={`text-center mx-52 h-10 pt-2 rounded-lg text-white opacity-70 animate-fadeIn ${messageType === 'success' ? 'bg-green-600' : 'bg-red-600'} ${!message && 'hidden'} `} >
             {message && <p>{message}</p>}
-        </div>
+        </div >
     )
 
-
-
-
 }
+
+export default Snackbar;

@@ -1,49 +1,53 @@
 import React, { useRef } from 'react'
 import { useState, useEffect } from 'react'
 import { fetchMovieByTitle, fetchMovieByTitleAndYear } from '../services/omdbServies'
+import { useMessageStore } from '../store/useMessageStore'
+import { fetchTmdbByTitle, fetchTmdbByTitleAndYear } from '../services/tmdbServices'
+import { data } from 'autoprefixer'
 
 function SearchResult() {
 
   const [title, setTitle] = useState('')
   const [year, setYear] = useState('')
-  const [movie, setMovie] = useState([])
-  const [error, setError] = useState('')
+  const [movies, setMovies] = useState([])
 
   const titleRef = useRef(null)
   const yearRef = useRef(null)
+  const resultCardRef = useRef(null)
+
 
   const getMovieData = async () => {
 
     try {
       if (!year) {
-        await fetchMovieByTitle(title)
+        await fetchTmdbByTitle(title)
           .then(response => {
-            if (response.data.Response === 'False') {
-              setError('Movie not found')
-            } else {
-              setMovie(response.data)
+            if (!response.ok) {
+              useMessageStore.getState().setMessage('Movie not found', 'Error')
             }
-          })
+            return response.json()
+
+          }).then(data => { setMovies(data['results']) })
       }
 
       else if (!title) {
-        setError('Title can not be empty')
+        useMessageStore.getState().setMessage('Movie not found', 'Error')
       }
 
       else {
-        await fetchMovieByTitleAndYear(title, year)
+        await fetchTmdbByTitleAndYear(title, year)
           .then(response => {
-            if (response === 'False') {
-              setError('Movie not found')
-            } else {
-              setMovie(response.data)
+            if (!response.ok) {
+              useMessageStore.getState().setMessage('Movie not found', 'Error')
             }
-          })
+            return response.json()
+
+          }).then(data => { setMovies(data['results']) })
 
       }
 
     } catch (error) {
-      setError(error)
+      useMessageStore.getState().setMessage('Movie not found', 'Error')
     }
   }
 
@@ -53,9 +57,12 @@ function SearchResult() {
     titleRef.current.value = ''
     yearRef.current.value = ''
 
+    setTimeout(() => {
+      resultCardRef.current.className = [...['flex justify-center']]
+    }, 500)
+
   }
 
-  console.log(movie)
 
   return (
     <div>
@@ -87,15 +94,20 @@ function SearchResult() {
       </form>
       {/* input data form -- end -- */}
 
-      <div className='flex justify-center'>
-        <div className='w-[500px] flex mt-20 mb-10 mx-16 bg-gray-200 rounded-xl overflow-hidden drop-shadow-lg'>
-          <img className='w-48' src={movie.Poster} alt='movie poster' />
-          <div className='m-5'>
-            <h2 className='font-poppins mb-2 font-semibold'>{movie.Title}<span className='ml-2 font-normal text-sm'>{movie.Type}</span></h2>
-            <span>Language: {movie.Language}</span>
+      <div className='flex flex-wrap justify-center  mt-20' ref={resultCardRef} >
+
+        {movies.map((movie) => (
+
+          <div className='m-2 p-3'
+            key={movie.id}>
+            <div className='bg-gray-200 p-5 rounded-lg w-60'>
+              <img className='w-56 rounded-lg' src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} />
+              <span className='block text-center font-thin mt-2'>{movie.title}</span>
+            </div>
           </div>
 
-        </div>
+        ))}
+
       </div>
 
     </div>

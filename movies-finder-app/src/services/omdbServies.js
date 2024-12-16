@@ -3,7 +3,7 @@ import axios from 'axios'
 export const fetchMovieByTitle = (title) => {
 
     return (
-        axios.get(`http://www.omdbapi.com/?t=${title.replaceAll(' ', '+')}&plot=full&apikey=977895db`)
+        axios.get(`http://www.omdbapi.com/?t=${title.replaceAll(' ', '+')}&plot=full&page=5&apikey=977895db`)
     )
 }
 
