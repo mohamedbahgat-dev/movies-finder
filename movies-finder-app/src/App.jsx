@@ -1,15 +1,19 @@
-import { useState } from 'react'
 import NavBar from './components/navBar'
-import MovieCard from './components/MovieCard'
+import MoviesCard from './components/MoviesCard'
+import SearchResult from './components/SearchResult';
+
 
 function App() {
   
   return (
-    <>
-      <NavBar />
-      <MovieCard />
+    <> 
+      <div>
+        <NavBar />
+        <SearchResult />
+        <MoviesCard />
+      </div>
     </>
   )
 }
 
-export default App
+export default App;

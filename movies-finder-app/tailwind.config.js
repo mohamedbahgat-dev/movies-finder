@@ -9,6 +9,7 @@ export default {
       fontFamily: {
         'poppins': ['Poppins'],
         'nunito': ['Nunito'],
+        'chivo' : ['Chivo']
       },
 
       keyframes: {
