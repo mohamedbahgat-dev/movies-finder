@@ -29,9 +29,13 @@ function MoviesCard() {
   useEffect(() => {
     shuffle(moviesData)
     setMovies(moviesData.slice(1, 6))
-
-
   }, [])
+
+  const handleClick = ()=>{
+    const movieElement = document.getElementById('movie-item')
+    console.log(movieElement.dataset.movie)
+    
+  }
 
 
   return (
@@ -39,8 +43,11 @@ function MoviesCard() {
     <div>
       <div id='movie-gallary' className='flex items-center overflow-x-scroll snap-x snap-mandatory backdrop-blur-lg '>
         {movies.map(movie =>
-          <div id='movie-item' className='snap-center' key={movie.imdbID}>
-            <MovieCard movie={movie} />
+          <div id='movie-item'
+               className='snap-center' 
+               key={movie.imdbID} >  
+            <MovieCard movie={movie}/>
+       
           </div>
 
         )}

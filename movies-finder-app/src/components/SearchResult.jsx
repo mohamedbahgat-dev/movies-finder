@@ -1,41 +1,45 @@
-import React, { useRef } from 'react'
-import { useState, useEffect } from 'react'
-import { fetchMovieByTitle, fetchMovieByTitleAndYear } from '../services/omdbServies'
+import React, { useEffect, useRef } from 'react'
+import { useState } from 'react'
 import { useMessageStore } from '../store/useMessageStore'
 import { fetchTmdbByTitle, fetchTmdbByTitleAndYear } from '../services/tmdbServices'
-import { data } from 'autoprefixer'
+import { useMovieStore } from '../store/moviesStore'
 
 function SearchResult() {
 
   const [title, setTitle] = useState('')
   const [year, setYear] = useState('')
   const [movies, setMovies] = useState([])
+  const [type, setType] = useState('')
 
+  
   const titleRef = useRef(null)
   const yearRef = useRef(null)
-  const resultCardRef = useRef(null)
-
+  
+  
+  useEffect(()=>{
+    useMovieStore.getState().setMovies(movies)
+  },[movies])
 
   const getMovieData = async () => {
 
     try {
       if (!year) {
-        await fetchTmdbByTitle(title)
+        await fetchTmdbByTitle(title,type)
           .then(response => {
             if (!response.ok) {
               useMessageStore.getState().setMessage('Movie not found', 'Error')
             }
             return response.json()
 
-          }).then(data => { setMovies(data['results']) })
+          }).then(data => { setMovies(data['results']) })       
       }
 
       else if (!title) {
         useMessageStore.getState().setMessage('Movie not found', 'Error')
       }
 
-      else {
-        await fetchTmdbByTitleAndYear(title, year)
+      else if (year) {
+        await fetchTmdbByTitleAndYear(title, type, year)
           .then(response => {
             if (!response.ok) {
               useMessageStore.getState().setMessage('Movie not found', 'Error')
@@ -43,7 +47,7 @@ function SearchResult() {
             return response.json()
 
           }).then(data => { setMovies(data['results']) })
-
+            
       }
 
     } catch (error) {
@@ -51,22 +55,19 @@ function SearchResult() {
     }
   }
 
+
   const handleSubmit = (e) => {
     e.preventDefault()
     getMovieData()
     titleRef.current.value = ''
     yearRef.current.value = ''
 
-    setTimeout(() => {
-      resultCardRef.current.className = [...['flex justify-center']]
-    }, 500)
-
   }
 
 
+  
   return (
     <div>
-
       {/* input data form -- start-- */}
       <form onSubmit={handleSubmit}
         className='flex flex-wrap items-center justify-center font-poppins'>
@@ -85,6 +86,18 @@ function SearchResult() {
           ref={yearRef}
           onChange={(event) => setYear(() => event.target.value)}
         />
+        
+        <label htmlFor='type'>Type</label>
+        <select id='type' name='selectType'
+                className='w-24 text-center bg-gray-100 rounded-lg mr-3 mx-2 h-8' 
+                onChange={(event)=> setType(()=> event.target.value)}
+                required >
+          <option value=' '></option>
+          <option value='movie'>movie</option>
+          <option value='tv'>tv</option>
+        </select>
+
+
         <button className=" mr-2" type='submit'>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#0ea5e9" className="size-9">
             <path d="M8.25 10.875a2.625 2.625 0 1 1 5.25 0 2.625 2.625 0 0 1-5.25 0Z" />
@@ -94,22 +107,20 @@ function SearchResult() {
       </form>
       {/* input data form -- end -- */}
 
-      <div className='flex flex-wrap justify-center  mt-20' ref={resultCardRef} >
-
-        {movies.map((movie) => (
-
-          <div className='m-2 p-3'
-            key={movie.id}>
-            <div className='bg-gray-200 p-5 rounded-lg w-60'>
-              <img className='w-56 rounded-lg' src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} />
-              <span className='block text-center font-thin mt-2'>{movie.title}</span>
-            </div>
+      {movies &&
+      <div className='flex flex-wrap justify-center mt-20 my-10 ' >
+        
+       {movies.map((movie) => (
+          <div className='m-3' key={movie.id}>
+            {movie.poster_path && 
+             <div className='bg-gray-200 p-5 rounded-lg w-60 '>
+              <img className='w-56 h-64 rounded-lg' src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} />
+              <span className='block text-center font-thin mt-2'>{movie.title || movie.original_name}</span>
+            </div> }
           </div>
-
         ))}
-
-      </div>
-
+      </div> 
+     }
     </div>
   )
 }
