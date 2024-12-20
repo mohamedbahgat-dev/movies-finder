@@ -4,9 +4,8 @@ export const useMovieStore = create(set => ({
     movies: [],
     favorites: [],
     addToLibrary: (newMovie) => set(state => ({movies: [...state.movies, newMovie]})),
-    setMovies : (movies)=> set({movies}),
-    addFavorites: (movieId) => set((state) =>({
-        favorites: state.movies.map(movie => movie.id===movieId && {...movie, favorite: movie.favorite})
-    }) )
-    
+    setLibraryMovies : (movies)=> set({movies: movies}),
+    MarkAsFavorite: (id) => set(state => ({movies: state.movies.map(movie => movie.id || movie.imdbID === id ? {...movie, favorite: true}: movie)})),
+    UnMarkFavorite: (id) => set(state => ({movies: state.movies.map(movie => movie.id || movie.imdbID === id ? {...movie, favorite: false}: movie) }) ),
+   
 }))

@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from 'react'
 import { useState } from 'react'
-import { useMessageStore } from '../store/useMessageStore'
-import { fetchTmdbByTitle, fetchTmdbByTitleAndYear } from '../services/tmdbServices'
-import { useMovieStore } from '../store/moviesStore'
+import { useMessageStore } from '../../store/useMessageStore'
+import { fetchTmdbByTitle, fetchTmdbByTitleAndYear } from '../../services/tmdbServices'
+import { useMovieStore } from '../../store/moviesStore'
 
 function SearchResult() {
 
@@ -16,10 +16,6 @@ function SearchResult() {
   const yearRef = useRef(null)
   
   
-  useEffect(()=>{
-    useMovieStore.getState().setMovies(movies)
-  },[movies])
-
   const getMovieData = async () => {
 
     try {

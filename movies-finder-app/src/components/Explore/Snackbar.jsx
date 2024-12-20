@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useMessageStore } from "../store/useMessageStore";
+import { useMessageStore } from '../../store/useMessageStore'
 
 const Snackbar = () => {
 

@@ -1,21 +1,28 @@
-import NavBar from './components/navBar'
-import MoviesCard from './components/MoviesCard'
-import SearchResult from './components/SearchResult';
-import Snackbar from './components/Snackbar';
-import MoviesLibrary from './components/MoviesLibrary';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import MoviesLibrary from './components/Library/MoviesLibrary';
+import HomePage from './components/Home/HomePage';
+import Layout from './components/Layout';
+import Explore from './components/Explore/Explore';
+import TrendMovies from './components/Trending/TrendMovies';
+import MovieDetails from './components/MovieDetails';
+
 
 function App() {
 
   return (
     <>
-      <div>
-        <NavBar />
-
-        <SearchResult />
-        <MoviesLibrary />
-        <Snackbar />
-        <MoviesCard />
-      </div>
+      <Router>
+        <Routes>
+          <Route path='/' element={<Layout />}>
+            <Route path='' element= {<HomePage />}/>
+            <Route path='movies/:movieId' element= {<MovieDetails />} />
+            <Route path='library' element= {<MoviesLibrary />} />
+            <Route path='explore' element= {<Explore />} />
+            <Route path='trending' element= {<TrendMovies />} />
+          </Route>
+        </Routes>
+      </Router>
+       
     </>
   )
 }

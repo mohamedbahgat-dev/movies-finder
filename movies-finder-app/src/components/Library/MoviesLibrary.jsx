@@ -1,14 +1,15 @@
-import { useMovieStore } from "../store/moviesStore";
+import { useMovieStore } from "../../store/moviesStore";
 
 
 function MoviesLibrary() {
 
     const movies = useMovieStore(state => state.movies)
-    const addMovies = useMovieStore(state => state.addToLibrary)
-    
+    const favorites = useMovieStore(state => state.favorites)
 
+   
 
   return (
+
     <div>MoviesLibrary</div>
   )
 }
