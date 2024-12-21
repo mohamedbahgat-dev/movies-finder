@@ -9,58 +9,38 @@ function MovieDetails() {
 
   const [tmdbData, setTmdbData] = useState('')
   const [rottenScore, setRottenScore] = useState('')
-
-  const movies = useMovieStore(state => state.movies)
-  const movieId = useParams()
-
   
-  // const getMovieData = async () => {
-  //   try {
-  //     await fetchTmdbByimdbId(movieId.movieId)
-  //           .then(response => {
-  //             if (!response.ok) {
-  //               useMessageStore.getState().setMessage('Movie not found', 'Error')
-  //             }
-  //             return response.json()
+  const addToFavorites = useMovieStore(state => state.AddToFavorites)
 
-  //           }).then(data => { setTmdbData(data['movie_results']) })       
-  //   }catch (error){
-  //     useMessageStore.getState().setMessage('Error fetching data', 'Error')
-  //   }
-  // } 
+  const movie = JSON.parse(localStorage.getItem('viewedMovie'))
   
-  // useEffect(()=> {
-  //    getMovieData()
-  // },[])
 
-  useEffect(()=> {
-      Array.from(movies).map((movie)=> {
+  useEffect(()=> { 
       let rottenValue = movie.Ratings.filter((rate) => rate.Source === 'Rotten Tomatoes')[0]
       if (rottenValue) {
             setRottenScore(rottenValue.Value)
         } else {
             setRottenScore('N/A')
-        }
-    })
-        
+        }       
   })
    
-  console.log(typeof Number(rottenScore.replace('%','')))
+  const handleFavorites = ()=> {
+    addToFavorites(movie)
+  }
+  
 
   return (
-
-    <div>
-      {Array.from(movies).map((movie)=> (
-        <div key={movie.imdbID}>
-          {movie.imdbID === movieId.movieId && 
-
+    <div>   
+        <div>
+              
           <div>
               <div id='background' className='flex drop-shadow-xl justify-center relative'>
-                 <img className='w-full h-[600px] justify-center opacity-40 blur-[6px]' src={movie.Poster} />
+                 <img className='w-full h-[600px] justify-center opacity-30 blur-sm' src={movie.Poster} />
               </div>
+
               <div className='flex justify-around text-white absolute top-36 mx-10'>
                 <div className='flex flex-col'>
-                   <img className='shadow-xl rounded-t-lg' src={movie.Poster} />
+                   <img className='shadow-xl w-[350px] h-[450px] rounded-t-lg' src={movie.Poster} />
                    <h3 className='bg-blue-950 h-10 text-center items-center pt-1.5 rounded-b-lg opacity-80'>{movie.Released}</h3>
                 </div>
 
@@ -71,10 +51,13 @@ function MovieDetails() {
                   <div className='flex mb-1 items-baseline'>
                       <h2 className='text-3xl font-nunito uppercase font-semibold'>{movie.Title}</h2>
                       <h2 className='text-lg mx-2'>{movie.Year}</h2>
+                      
                   </div>
                   <div className='flex items-baseline mt-3'>
                      <span className='font-thin uppercase border p-1 hover:bg-teal-600'>{movie.Type}</span>
+                     <span className='border text-gray-900 py-1 px-2 mr-1 bg-yellow-500 ml-3'>{movie.Rated}</span>
                      <span className='block ml-2 text-sm'>{movie.Genre}</span>
+                     
                   </div>
                           
                   <div className='flex items-center mt-8'>
@@ -102,39 +85,70 @@ function MovieDetails() {
                     </div>   
 
                            {/* imdb score  */}                                     
-                    <img className='w-7 mx-2 ml-8' src='../src/assets/IMDb.png'/>
+                    <img className='w-7 mx-2 ml-8' src='../src/assets/IMDB.png'/>
                     <div>
                       <span>{movie.imdbRating}</span>
-                    </div>                                                            
+                    </div> 
+                                                                               
                   </div> 
+                          {/* Icons part --start---- */}
 
-                  <div className='flex items-center mt-10'>
-                    <span className='border p-1 mr-4 bg-gray-500'>{movie.Rated}</span>
-                    <span className='border p-1 mr-4'>{movie.Language}</span>
-                    <span className='border p-1'>{movie.Country}</span>
+                  <div className='flex items-center mt-8'>
+
+                    {/* mylist icon */}
+                    <div className='bg-teal-600 p-2 mr-3 rounded-full'>
+                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-5">
+                         <path fillRule="evenodd" d="M2.625 6.75a1.125 1.125 0 1 1 2.25 0 1.125 1.125 0 0 1-2.25 0Zm4.875 0A.75.75 0 0 1 8.25 6h12a.75.75 0 0 1 0 1.5h-12a.75.75 0 0 1-.75-.75ZM2.625 12a1.125 1.125 0 1 1 2.25 0 1.125 1.125 0 0 1-2.25 0ZM7.5 12a.75.75 0 0 1 .75-.75h12a.75.75 0 0 1 0 1.5h-12A.75.75 0 0 1 7.5 12Zm-4.875 5.25a1.125 1.125 0 1 1 2.25 0 1.125 1.125 0 0 1-2.25 0Zm4.875 0a.75.75 0 0 1 .75-.75h12a.75.75 0 0 1 0 1.5h-12a.75.75 0 0 1-.75-.75Z" clipRule="evenodd" />
+                       </svg>
+                    </div>
+                     
+                     {/* Favorites icon */}
+                    <div className='bg-teal-600 p-2 mr-3 rounded-full'>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-5">
+                          <path d="m11.645 20.91-.007-.003-.022-.012a15.247 15.247 0 0 1-.383-.218 25.18 25.18 0 0 1-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0 1 12 5.052 5.5 5.5 0 0 1 16.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 0 1-4.244 3.17 15.247 15.247 0 0 1-.383.219l-.022.012-.007.004-.003.001a.752.752 0 0 1-.704 0l-.003-.001Z" />
+                        </svg>
+                    </div>
+
+                      {/* Watch list  */}
+                    <div className='bg-teal-600 p-2 mr-3 rounded-full'>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-5">
+                          <path fillRule="evenodd" d="M6.32 2.577a49.255 49.255 0 0 1 11.36 0c1.497.174 2.57 1.46 2.57 2.93V21a.75.75 0 0 1-1.085.67L12 18.089l-7.165 3.583A.75.75 0 0 1 3.75 21V5.507c0-1.47 1.073-2.756 2.57-2.93Z" clipRule="evenodd" />
+                        </svg>
+                    </div>
+
+                    {/* play trailer */}
+                    <div className='flex p-3 rounded-full'>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6">
+                          <path fillRule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm14.024-.983a1.125 1.125 0 0 1 0 1.966l-5.603 3.113A1.125 1.125 0 0 1 9 15.113V8.887c0-.857.921-1.4 1.671-.983l5.603 3.113Z" clipRule="evenodd" />
+                        </svg>
+                        <span className='ml-2'>Play Trailer</span>
+                    </div>
+
                   </div>
 
-                  <div className='mt-8'>
-                    <h2 className='font-poppins font-semibold text-lg'><i>Cast</i></h2>
+                          {/* Icons part ---end---- */}
+
+                  <div className='mt-6'>
+                    <h2 className='font-poppins font-semibold text-lg'>Cast</h2>
                     <h3>{movie.Actors}</h3>
                   </div>  
 
-                  <div className='mt-5'>
-                    <h2 className='font-poppins font-semibold text-lg'><i>Director</i></h2>
+                  <div className='mt-4'>
+                    <h2 className='text-xl font-poppins font-semibold'>Director</h2>
                     <h3>{movie.Director}</h3>
                   </div>
-                </div> 
-              </div> 
 
-              <div className='bg-teal-600 opacity-65 rounded-xl w-96 h-48 ml-12 mt-32 p-5'>
-                <h1 className='mb-2 text-xl font-poppins font-semibold'>Overview</h1>
-                <h2 className='font-nunito'>{movie.Plot}</h2>
-              </div>             
+                  <div className='mt-4'>
+                    <h2 className='text-xl font-poppins font-semibold'>Overview</h2>
+                    <h2 className='font-nunito'>{movie.Plot}</h2>
+                  </div>  
+                </div> 
+               </div>  
               </div>
           </div>         
-          }
+       
         </div>
-      ))}
+  
       {/* <img src={`https://image.tmdb.org/t/p/w500${tmdbData[0]}`}/> */}
     </div>
   )
