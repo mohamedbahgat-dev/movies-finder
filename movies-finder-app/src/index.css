@@ -72,3 +72,15 @@
   background: var(--clr);
   transform: rotate(calc(((var(--i) - 50) * 0.01turn)));
 }
+
+.search-backdrop {
+  background-image: url("assets/backdrop1.jpeg");
+  background-color: #3d585e;
+  background-blend-mode: overlay;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}

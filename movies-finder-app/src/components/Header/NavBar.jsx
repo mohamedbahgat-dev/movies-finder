@@ -8,7 +8,7 @@ function NavBar() {
       <div>
         <header>
             <nav>
-              <div className='flex flex-wrap items-center justify-between  mb-10 p-3  shadow-md font-poppins bg-teal-500'>
+              <div className='flex flex-wrap items-center justify-between p-3  shadow-md font-poppins bg-teal-500'>
                   <div>
                     <img className='w-32 ml-3 ' src="../src/assets/mania2.png"/>
                   </div>

@@ -9,12 +9,8 @@ function MovieDetails() {
 
   const [tmdbData, setTmdbData] = useState('')
   const [rottenScore, setRottenScore] = useState('')
-  
-  const addToFavorites = useMovieStore(state => state.AddToFavorites)
-
   const movie = JSON.parse(localStorage.getItem('viewedMovie'))
   
-
   useEffect(()=> { 
       let rottenValue = movie.Ratings.filter((rate) => rate.Source === 'Rotten Tomatoes')[0]
       if (rottenValue) {
@@ -24,15 +20,10 @@ function MovieDetails() {
         }       
   })
    
-  const handleFavorites = ()=> {
-    addToFavorites(movie)
-  }
-  
 
   return (
     <div>   
-        <div>
-              
+        <div>             
           <div>
               <div id='background' className='flex drop-shadow-xl justify-center relative'>
                  <img className='w-full h-[600px] justify-center opacity-30 blur-sm' src={movie.Poster} />
@@ -149,7 +140,7 @@ function MovieDetails() {
        
         </div>
   
-      {/* <img src={`https://image.tmdb.org/t/p/w500${tmdbData[0]}`}/> */}
+      {/* <img src={`https://image.tmdb.org/t/p/w500/p6ZP3Humvo90UXkDeEv5x9aynNH.jpg`}/> */}
     </div>
   )
 }

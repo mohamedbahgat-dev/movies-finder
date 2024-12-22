@@ -1,11 +1,11 @@
-import SearchResult from "./SearchResult";
+import SearchBar from "./SearchBar";
 import Snackbar from "./Snackbar";
 
 
 function Explore() {
   return (
     <div>
-        <SearchResult />
+        <SearchBar />
         <Snackbar />
     </div>
   )

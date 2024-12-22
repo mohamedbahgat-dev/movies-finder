@@ -5,6 +5,7 @@ import Layout from './components/Layout';
 import Explore from './components/Explore/Explore';
 import TrendMovies from './components/Trending/TrendMovies';
 import MovieDetails from './components/MovieDetails';
+import SearchResults from './components/Search/SearchResults';
 
 
 function App() {
@@ -19,6 +20,8 @@ function App() {
             <Route path='library' element= {<MoviesLibrary />} />
             <Route path='explore' element= {<Explore />} />
             <Route path='trending' element= {<TrendMovies />} />
+            <Route path='search' element= {<SearchResults />} />
+
           </Route>
         </Routes>
       </Router>
