@@ -29,9 +29,9 @@ function MovieDetails() {
                  <img className='w-full h-[600px] justify-center opacity-30 blur-sm' src={movie.Poster} />
               </div>
 
-              <div className='flex justify-around text-white absolute top-36 mx-10'>
+              <div className='flex justify-around text-white absolute top-28 mx-10'>
                 <div className='flex flex-col'>
-                   <img className='shadow-xl w-[350px] h-[450px] rounded-t-lg' src={movie.Poster} />
+                   <img className='shadow-xl w-[400px] h-[450px] rounded-t-lg' src={movie.Poster} />
                    <h3 className='bg-blue-950 h-10 text-center items-center pt-1.5 rounded-b-lg opacity-80'>{movie.Released}</h3>
                 </div>
 

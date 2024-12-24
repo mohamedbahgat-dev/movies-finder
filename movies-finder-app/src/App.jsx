@@ -6,6 +6,7 @@ import Explore from './components/Explore/Explore';
 import TrendMovies from './components/Trending/TrendMovies';
 import MovieDetails from './components/MovieDetails';
 import SearchResults from './components/Search/SearchResults';
+import ShowDetails from './components/Search/ShowDetails';
 
 
 function App() {
@@ -21,6 +22,9 @@ function App() {
             <Route path='explore' element= {<Explore />} />
             <Route path='trending' element= {<TrendMovies />} />
             <Route path='search' element= {<SearchResults />} />
+            <Route path='show/:movieId' element= {<ShowDetails />} />
+            
+            <Route path='*' element={<div>Not found</div>} />
 
           </Route>
         </Routes>

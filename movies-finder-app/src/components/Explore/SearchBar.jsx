@@ -38,8 +38,7 @@ function SearchBar() {
 
     setTimeout(() => {
             setTimeout(navigate("/search"));
-        }, 800)
-    ;
+        }, 1000)
   }
 
   return (
