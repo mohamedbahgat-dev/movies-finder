@@ -41,9 +41,9 @@ function MovieDetails() {
                  <div className='ml-7 mt-3'>
                   <div className='flex mb-1 items-baseline'>
                       <h2 className='text-3xl font-nunito uppercase font-semibold'>{movie.Title}</h2>
-                      <h2 className='text-lg mx-2'>{movie.Year}</h2>
-                      
-                  </div>
+                      <h2 className='text-lg mx-2'>{movie.Year}</h2>                     
+                 </div>
+
                   <div className='flex items-baseline mt-3'>
                      <span className='font-thin uppercase border p-1 hover:bg-teal-600'>{movie.Type}</span>
                      <span className='border text-gray-900 py-1 px-2 mr-1 bg-yellow-500 ml-3'>{movie.Rated}</span>

@@ -75,7 +75,7 @@
 
 .search-backdrop {
   background-image: url("assets/backdrop1.jpeg");
-  background-color: #3d585e;
+  background-color: #193d44;
   background-blend-mode: overlay;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -83,4 +83,47 @@
   -webkit-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+}
+
+#show-background {
+  background-color: rgba(0, 0, 0, 0.9);
+  background-blend-mode: overlay;
+}
+
+.score-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.score-container .score-progress {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  color: #fff;
+  background: #444 linear-gradient(to right, transparent 50%, var(--clr) 0);
+}
+
+.score-container .score-progress::before {
+  content: "";
+  display: block;
+  height: 100%;
+  margin-left: 50%;
+  transform-origin: left;
+  border-radius: 0 100% 100% 0/50%;
+}
+
+.score-container .score-progress::after {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border-radius: 50%;
+  background-color: #43414f;
+}
+
+.score-container .score-progress::before {
+  background: var(--clr);
+  transform: rotate(calc((((var(--i) * 10) - 50) * 0.01turn)));
 }

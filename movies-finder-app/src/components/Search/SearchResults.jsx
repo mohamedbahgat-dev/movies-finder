@@ -38,9 +38,11 @@ function SearchResults() {
       
   }
 
+  const saveViewedMovie = (movie)=> {
+    localStorage.setItem('viewed-movie', JSON.stringify(movie))
+  }
+
   
-
-
   return (
     <div>
         <div>

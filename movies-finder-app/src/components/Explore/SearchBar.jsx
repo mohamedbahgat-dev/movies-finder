@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import { useMessageStore } from '../../store/useMessageStore'
 import { fetchTmdbQuery} from '../../services/tmdbServices'
-import { useMovieStore } from '../../store/moviesStore'
+
 
 function SearchBar() {
 
