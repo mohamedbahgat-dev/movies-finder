@@ -122,7 +122,7 @@ function MovieCard(props) {
         <div>
             <div>
                                              {/* card container ----start------ */}
-                <div className='m-10 p-2 text-center w-60 h-auto bg-teal-100 rounded-2xl drop-shadow-lg'>
+                <div className='ml-12 p-2 mb-12 text-center w-60 h-auto backdrop-blur-sm bg-blue-200/30 rounded-2xl drop-shadow-lg'>
                     {/* visible part of movie card */}
                     <div >
                               {/* movie full poster poster  */}

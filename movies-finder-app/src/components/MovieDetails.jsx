@@ -1,9 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useMovieStore } from '../store/moviesStore'
-import { useMessageStore } from '../store/useMessageStore'
-import { useParams } from 'react-router-dom'
-import { fetchTmdbByimdbId } from '../services/tmdbServices'
-
+import PagesNavBar from './PagesNavBar'
 
 function MovieDetails() {
 
@@ -22,7 +18,8 @@ function MovieDetails() {
    
 
   return (
-    <div>   
+    <div>
+        <PagesNavBar />   
         <div>             
           <div>
               <div id='background' className='flex drop-shadow-xl justify-center relative'>

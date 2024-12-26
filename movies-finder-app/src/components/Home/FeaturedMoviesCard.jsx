@@ -18,8 +18,7 @@ function FeaturedMoviesCard() {
   return (
 
     <div>
-      <span className='inline-block ml-10 border-b-4 pb-2 bottom-5 border-b-teal-500'>Featured Movies</span>
-      <div id='movie-gallary' className='flex items-center overflow-x-scroll snap-x snap-mandatory backdrop-blur-lg '>
+      <div id='movie-gallary' className='flex items-center overflow-x-scroll mt-4 snap-x snap-mandatory backdrop-blur-lg '>
         
         {movies.map(movie =>
           <div id='movie-item'

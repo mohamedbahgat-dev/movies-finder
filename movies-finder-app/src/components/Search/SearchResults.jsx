@@ -1,7 +1,7 @@
-import NavBar from '../Header/NavBar'
 import React, { useEffect, useState } from 'react'
 import { fetchTmdbQuery } from '../../services/tmdbServices'
 import { Link } from 'react-router-dom'
+import PagesNavBar from '../PagesNavBar'
 
 
 function SearchResults() {
@@ -45,6 +45,7 @@ function SearchResults() {
   
   return (
     <div>
+       <PagesNavBar />
         <div>
           <div className='border-b justify-between w-screen bg-white h-10'>      
             <form  onSubmit={ handleSubmit} className='flex w-full'>

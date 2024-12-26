@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import moviesGenre from '../../moviesGenre.json'
 import tvGenre from '../../tvGenre.json'
+import PagesNavBar from '../PagesNavBar'
 
 function ShowDetails() {
 
@@ -47,7 +48,9 @@ function ShowDetails() {
 
   return (
 
-    <div>
+   <>
+     <PagesNavBar />
+     <div>
         <div id='show-background' className='relative'>
                  <img className='w-full h-[650px] justify-center opacity-30' 
                       src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path || movie.poster_path}`} />
@@ -124,6 +127,7 @@ function ShowDetails() {
            </div>          
         </div>    
     </div>
+  </>
   )
 }
 

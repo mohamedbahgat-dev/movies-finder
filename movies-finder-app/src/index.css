@@ -25,6 +25,7 @@
 
 ::-webkit-scrollbar-thumb {
   cursor: pointer;
+  margin-top: 20px;
   background-color: #1eff5a;
   border-right: 350px solid white;
   border-left: 100px solid white;
@@ -33,6 +34,9 @@
 #background {
   background-color: rgba(3, 37, 39, 0.9);
   background-blend-mode: overlay;
+}
+
+#movie-gallary {
 }
 
 .container {
@@ -74,6 +78,18 @@
 }
 
 .search-backdrop {
+  background-image: url("assets/backdrop1.jpeg");
+  background-color: #193d44;
+  background-blend-mode: overlay;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.nav-backdrop {
   background-image: url("assets/backdrop1.jpeg");
   background-color: #193d44;
   background-blend-mode: overlay;

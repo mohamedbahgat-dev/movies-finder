@@ -1,40 +1,44 @@
 import React from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 
 
-function NavBar() {
+function HomeNavBar() {
+
   return (
+
     <>
       <div>
-        <header>
-            <nav>
-              <div className='flex flex-wrap items-center justify-between p-3  shadow-md font-poppins bg-teal-500'>
-                  <div>
-                    <img className='w-32 ml-3 ' src="../src/assets/mania2.png"/>
-                  </div>
-               
-                  <ul className='flex'>
+        <header className='nav-backdrop relative'>
+            <nav className='absolute top-8 left-10 z-30 w-[94%]'>
+              <div className='flex flex-wrap items-center shadow-md font-poppins p-3 backdrop-blur-sm bg-white/30  rounded-xl '>
+                  
+                  <Link to={'/'}>
+                    <img className=' w-24 ml-10 bg-gradient-to-r from-cyan-500 to-blue-300  p-1 rounded-xl hover:cursor-pointer' 
+                         src="../src/assets/logomania.png" />                  
+                  </Link>
+           
+                  <ul className='flex ml-5'>
                     <li>
-                       <NavLink to='/'
-                             className={({isActive})=>`mx-2 hover:text-teal-400 cursor-pointer ${isActive ? 'text-red-500': 'text-gray-200'}`}>
+                       <NavLink to=''
+                             className={({isActive})=>`mx-2 hover:text-sky-400 cursor-pointer ${isActive ? 'text-red-500': 'text-gray-200'}`}>
                              Home
                       </NavLink>
                     </li>
                    <li>
                        <NavLink to='/trending'
-                             className={({isActive})=>`mx-2 hover:text-teal-400 cursor-pointer ${isActive ? 'text-red-500': 'text-gray-200'}`}>
+                             className={({isActive})=>`mx-2 hover:text-sky-400 cursor-pointer ${isActive ? 'text-red-500': 'text-gray-200'}`}>
                              Trending
                       </NavLink>
                     </li>
                     <li>
                        <NavLink to='/explore'
-                             className={({isActive})=>`mx-2 hover:text-teal-400 cursor-pointer ${isActive ? 'text-red-500': 'text-gray-200'}`}>
+                             className={({isActive})=>`mx-2 hover:text-sky-400 cursor-pointer ${isActive ? 'text-red-500': 'text-gray-200'}`}>
                              Explore
                       </NavLink>
                     </li>
                     <li>
                        <NavLink to='/library'
-                             className={({isActive})=>`mx-2 hover:text-teal-400 cursor-pointer ${isActive ? 'text-red-500': 'text-gray-200'}`}>
+                             className={({isActive})=>`mx-2 hover:text-sky-400 cursor-pointer ${isActive ? 'text-red-500': 'text-gray-200'}`}>
                              Library
                       </NavLink>
                     </li>
@@ -48,4 +52,4 @@ function NavBar() {
   )
 }
 
-export default NavBar
+export default HomeNavBar

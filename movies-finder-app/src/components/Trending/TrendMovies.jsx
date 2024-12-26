@@ -1,9 +1,13 @@
 import React from 'react'
+import PagesNavBar from '../PagesNavBar'
 
 function TrendMovies() {
     
   return (
-    <div>TrendMovies</div>
+    <div>
+      <PagesNavBar />
+      <div>Trending</div>
+    </div>
   )
 }
 
