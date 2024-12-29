@@ -13,6 +13,7 @@ import FeaturedMoviesCard from './components/Home/FeaturedMoviesCard';
 import FeaturedMoviesWeek from './components/Home/FeaturedMoviesWeek';
 
 
+
 function App() {
 
   return (
@@ -22,8 +23,10 @@ function App() {
           <Route path='/' element={<Layout />}>
             <Route path='' element= {<HomePage />}>
              
-              <Route path='' element={<FeaturedMoviesCard />} />
-              <Route path='/week' element={<FeaturedMoviesWeek />} /> 
+              <Route path='' element={<FeaturedMoviesCard />} />             
+              <Route path='/2023' element={<FeaturedMoviesWeek />} /> 
+             
+            
             </Route>
 
             <Route path='movies/:movieId' element= {<MovieDetails />} />

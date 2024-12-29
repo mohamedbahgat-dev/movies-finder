@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import moviesGenre from '../../moviesGenre.json'
-import tvGenre from '../../tvGenre.json'
+import moviesGenre from '../../data/moviesGenre.json'
+import tvGenre from '../../data/tvGenre.json'
 import PagesNavBar from '../PagesNavBar'
 
 function ShowDetails() {

@@ -1,5 +1,5 @@
-import React, { useEffect, useRef } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import {useRef } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import { useMessageStore } from '../../store/useMessageStore'
 import { fetchTmdbQuery} from '../../services/tmdbServices'

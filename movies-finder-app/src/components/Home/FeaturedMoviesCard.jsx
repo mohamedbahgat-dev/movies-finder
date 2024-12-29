@@ -1,5 +1,5 @@
-import React, { useEffect, useState, useRef } from 'react'
-import moviesData from '../../movies.json'
+import React, { useEffect, useState } from 'react'
+import moviesData from '../../data/movies.json'
 import MovieCard from '../MovieCard';
 import { useMovieStore } from '../../store/moviesStore';
 
@@ -17,17 +17,20 @@ function FeaturedMoviesCard() {
 
   return (
 
-    <div>
-      <div id='movie-gallary' className='flex items-center overflow-x-scroll mt-4 snap-x snap-mandatory backdrop-blur-lg '>
+    <div id='slider'>
+      <div  className='flex items-center mt-3 overflow-x-scroll snap-x snap-mandatory  backdrop-blur-lg relative'>
         
-        {movies.map(movie =>
+          {movies.map(movie =>
           <div id='movie-item'
                className='snap-center' 
                key={movie.imdbID} >  
             <MovieCard movie={movie}/>     
           </div>
-        )}
+         )}
       </div>
+        
+        
+  
     </div>
 
   )

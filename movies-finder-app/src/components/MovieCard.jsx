@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from 'react'
-import { useMovieStore } from '../store/moviesStore'
 import { Link } from 'react-router-dom'
 
 
@@ -16,7 +15,7 @@ function MovieCard(props) {
     const titleRef = useRef(null)
     const imageRef = useRef(null)
     const hamburgerListRef = useRef(null)
-    const blurRef = useRef(null)
+    
 
     // side effects management
     
@@ -54,13 +53,11 @@ function MovieCard(props) {
     // show options manu event callback function
     const showHamburgerList = ()=> {
         hamburgerListRef.current.className = [...['absolute flex flex-col z-30 top-10 -right-10 bg-gray-200 rounded-md text-sm font-poppins cursor-pointer']]
-        blurRef.current.className = [...['absolute top-2 right-2 backdrop-blur-3xl z-20 bg-black/50 w-56 h-80 rounded-2xl']]
     }
 
      // hide options menu event callback function
     const hideHamburgerList = ()=> {
         hamburgerListRef.current.className = 'hidden'
-        blurRef.current.className = 'hidden'
     }
 
     // manage my-list movie local storage
@@ -122,11 +119,11 @@ function MovieCard(props) {
         <div>
             <div>
                                              {/* card container ----start------ */}
-                <div className='ml-12 p-2 mb-12 text-center w-60 h-auto backdrop-blur-sm bg-blue-200/30 rounded-2xl drop-shadow-lg'>
+                <div className='ml-12 p-2 text-center w-60 h-auto mb-5 backdrop-blur-sm bg-blue-200/30 rounded-2xl drop-shadow-lg'>
                     {/* visible part of movie card */}
                     <div >
                               {/* movie full poster poster  */}
-                        <div className='hidden' ref={blurRef}></div>      
+                            
                         <img id='movie-image'
                             className='w-60 h-80 object-cover rounded-3xl shadow-xl cursor-pointer mb-3 relative'
                             src={movie.Poster} alt='movie poster'
@@ -232,4 +229,4 @@ function MovieCard(props) {
     )
 }
 
-export default MovieCard
+export default MovieCard;

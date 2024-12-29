@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import moviesData from '../../movies2.json'
+import moviesData from '../../data/movies2.json'
 import MovieCard from '../MovieCard';
 
 
@@ -14,7 +14,7 @@ function FeaturedMoviesWeek() {
 
   return (
 
-    <div>
+    <div id='slider'>
       <div id='movie-gallary' className='flex items-center overflow-x-scroll mt-8 snap-x snap-mandatory backdrop-blur-lg '>
         
         {movies.map(movie =>

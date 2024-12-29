@@ -1,9 +1,9 @@
-import React from 'react'
-import FeaturedMoviesCard from '../Home/FeaturedMoviesCard'
 import SearchBar from '../Explore/SearchBar'
 import HomeNavBar from '../Header/NavBar'
 import FeatureMoviesHeader from './FeatureMoviesHeader'
 import { Outlet } from 'react-router-dom'
+import TrendingPosters from '../Trending/TrendingPosters'
+import TtrendingCardsHeader from '../Trending/TrendingCardsHeader'
 
 function HomePage() {
 
@@ -13,9 +13,17 @@ function HomePage() {
     <div>
          <HomeNavBar />
          <SearchBar />  
-         <FeatureMoviesHeader /> 
+         <FeatureMoviesHeader />    
          <Outlet />
+         <TrendingPosters />
         
+       
+         
+        
+
+        
+        
+            
     </div>
 
   )
