@@ -1,19 +1,16 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
+import PagesNavBar from '../PagesNavBar'
+import { useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom'
 import moviesGenre from '../../data/moviesGenre.json'
 import tvGenre from '../../data/tvGenre.json'
-import PagesNavBar from '../PagesNavBar'
 
 
 
-function ShowDetails() {
+function TrendingDetails() {
 
-    const movieId = useParams()
-    const movies = JSON.parse(localStorage.getItem('search-results'))
-    const movie = movies.filter((movie)=> movie.id == movieId.movieId)[0]
-
+    const movie = JSON.parse(localStorage.getItem('viewedMovie'))
     const [genre, setGenre] = useState('')
-
     const movieGenres = moviesGenre.genres
     const tvGenres = tvGenre.genres
 
@@ -22,11 +19,9 @@ function ShowDetails() {
     },[])
 
 
-
     const getGenre = ()=> {
+        let extractGenre = [] 
 
-        let extractGenre = []
-                 
         if (movie.media_type === 'movie'){
             for (let genre of movieGenres){
               for (let id of movie.genre_ids){
@@ -45,45 +40,48 @@ function ShowDetails() {
         setGenre(extractGenre)
     }
 
+    
 
   return (
+    <div>
 
-   <>
-     <PagesNavBar />
-      <div>
-        <div id='show-background' className='relative'>
+        <PagesNavBar />
+
+        <div>     
+            <div id='trend-background' className='relative'>
                  <img className='w-full h-[650px] justify-center opacity-30' 
                       src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path || movie.poster_path}`} />
-        </div>
+            </div>
+           <div className='flex items-start absolute top-36 left-10 text-white'>
+               <div className='w-72'>
+                 <img  src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                       className='shadow-xl w-[300px] h-[450px] rounded-t-lg'/>
 
-        <div className='flex items-start absolute top-36 left-10 text-white'>
-           <div>
-              <img  src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                    className='shadow-xl w-[300px] h-[450px] rounded-t-lg'/>
-              <h3 className='bg-blue-950 h-10 text-center items-center pt-1.5 rounded-b-lg opacity-80'>{movie.release_date || movie.first_air_date}</h3>
-           </div> 
-           <div className='block ml-10 mt-8 relative'> 
-              <h2 className='text-3xl font-popins uppercase font-semibold'>{movie.title || movie.name}</h2> 
-              <div className='flex mt-5 items-center'>
-                <span className='inline-block uppercase border p-1'>{movie.media_type}</span>
-                <div className='ml-3 px-2 py-0.5 font-thin'>
-                  {genre.length != 0 ? 
-                     <div className='place-items-center'>{`${genre[0]}& ${genre[1]}, ${genre[2]}`}</div>  
-                 :<span></span>}
-               </div>
-              </div>
+                 <h3 className='bg-blue-950 h-10 text-center items-center pt-1.5 rounded-b-lg opacity-80'>{movie.release_date || movie.first_air_date}</h3>
+               </div> 
+             <div className='block ml-10 mt-8 relative'> 
+                <h2 className='text-3xl font-popins uppercase font-semibold'>{movie.title || movie.name}</h2> 
+                <div className='flex mt-5 items-center'>
+                    <span className='inline-block uppercase border p-1'>{movie.media_type || 'Movie'}</span>
+                    <div className='ml-3 px-2 py-0.5 font-thin'>
+                        {genre.length != 0 ? 
+                            <div className='place-items-center'>{`${genre[0]}& ${genre[1]}, ${genre[2]}`}</div>  
+                        :<span></span>}
+                    </div>
+                </div>
  
-             <div className='flex items-center'>
-               <div className='score-container w-14 mt-10 '>
-                  <div className='score-progress' style={{ "--i": movie.vote_average,"--clr": '#43f94a' }}>
-                   <h3 className='absolute top-[35%] left-[30%] text-xs z-10  font-semibold'>{Math.round(movie.vote_average * 10)}<small>%</small></h3>
-                 </div>
-              </div>
-                <h2 className='mt-8 ml-4 text-xl'>Users Score</h2>
-                <span className='mt-8 ml-5 bg-[#43414f] border-4 border-[#43f94a] text-xs rounded-full w-14 h-14'></span>
-                <span className='relative top-4 text-xs right-[38px]'>{Math.round(movie.popularity)}</span>
-                <span className='mt-8 ml-5 text-xl'>Popularity Score</span>
-             </div>
+                <div className='flex items-center'>
+                    <div className='score-container w-14 mt-10 '>
+                        <div className='score-progress' style={{ "--i": movie.vote_average,"--clr": '#43f94a' }}>
+                        <h3 className='absolute top-[35%] left-[30%] text-xs z-10  font-semibold'>{Math.round(movie.vote_average * 10)}<small>%</small></h3>
+                        </div>
+                    </div>
+                    <h2 className='mt-8 ml-4 text-xl'>Users Score</h2>
+                    <span className='mt-8 ml-5 bg-[#43414f] border-4 border-[#43f94a] text-xs rounded-full w-14 h-14'></span>
+                    <span className='relative top-4 text-xs right-[38px]'>{Math.round(movie.popularity)}</span>
+                    <span className='mt-8 ml-5 text-xl'>Popularity Score</span>
+                        
+                </div>
                         {/* Icons part --start---- */}
 
                 <div className='flex items-center mt-8'>
@@ -120,15 +118,15 @@ function ShowDetails() {
                 </div>
                      {/* Icons part ----end----- */}
 
-             <div className='flex flex-col items-start'>
-                <span className='mt-8 text-xl font-poppins'>Overview</span>
-                <span className='w-[800px] mt-4'>{movie.overview}</span>
-             </div>  
-           </div>          
-        </div>    
+                <div className='flex flex-col items-start'>
+                  <span className='mt-8 text-xl font-poppins'>Overview</span>
+                  <span className='w-[800px] mt-4'>{movie.overview}</span>
+                </div>  
+            </div>          
+          </div> 
+       </div>    
     </div>
-  </>
   )
 }
 
-export default ShowDetails
+export default TrendingDetails

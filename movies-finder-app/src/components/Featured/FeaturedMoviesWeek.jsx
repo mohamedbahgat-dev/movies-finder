@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import moviesData from '../../data/movies2.json'
-import MovieCard from '../MovieCard';
+import MovieCard from './MovieCard';
 
 
 function FeaturedMoviesWeek() {

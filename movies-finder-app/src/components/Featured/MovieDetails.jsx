@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import PagesNavBar from './PagesNavBar'
+import PagesNavBar from '../PagesNavBar'
 
 function MovieDetails() {
 

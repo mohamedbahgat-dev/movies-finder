@@ -132,24 +132,20 @@ function MovieCard(props) {
                         
  
                                                         {/* hamburger menu icon */}
-                        <div onClick={showHamburgerList}
-                             
+                        <div onClick={showHamburgerList}  
                              className='absolute top-5 right-5 bg-gray-300 rounded-full opacity-90 hover:bg-teal-800 hover:cursor-pointer'>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6">
                                <path fillRule="evenodd" d="M4.5 12a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm6 0a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm6 0a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Z" clipRule="evenodd" />
                             </svg>
                         </div>
-  
-                           {/* hamburger menu */}
+                               {/* hamburger menu */}
                         <div className='hidden' ref={hamburgerListRef}>
-
                                     {/* close Icon */}
                             <div className='ml-[100px] mt-1 mr-1 hover:cursor-pointer' onClick={hideHamburgerList}>
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-4">
                                   <path fillRule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm-1.72 6.97a.75.75 0 1 0-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 1 0 1.06 1.06L12 13.06l1.72 1.72a.75.75 0 1 0 1.06-1.06L13.06 12l1.72-1.72a.75.75 0 1 0-1.06-1.06L12 10.94l-1.72-1.72Z" clipRule="evenodd" />
                                </svg>
-                            </div>
-                           
+                            </div>                          
                             {/* add to my list button/icon */}
                             <div onClick={handleMovieList}
                                  className='flex items-center mt-0 p-1 m-1 pr-5 border-b border-b-gray-300 hover:bg-blue-900 hover:text-white'>

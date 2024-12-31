@@ -6,11 +6,12 @@ import HomePage from './components/Home/HomePage';
 import Layout from './components/Layout';
 import Explore from './components/Explore/Explore';
 import TrendMovies from './components/Trending/TrendMovies';
-import MovieDetails from './components/MovieDetails';
+import MovieDetails from './components//Featured/MovieDetails';
 import SearchResults from './components/Search/SearchResults';
 import ShowDetails from './components/Search/ShowDetails';
-import FeaturedMoviesCard from './components/Home/FeaturedMoviesCard';
-import FeaturedMoviesWeek from './components/Home/FeaturedMoviesWeek';
+import FeaturedMoviesCard from './components/Featured/FeaturedMoviesCard';
+import FeaturedMoviesWeek from './components/Featured/FeaturedMoviesWeek';
+import TrendingDetails from './components/Trending/TrendingDetails';
 
 
 
@@ -35,6 +36,8 @@ function App() {
             <Route path='trending' element= {<TrendMovies />} />
             <Route path='search' element= {<SearchResults />} />
             <Route path='show/:movieId' element= {<ShowDetails />} />
+            <Route path='trendings/:trendId' element= {<TrendingDetails />} />
+
             
             
             <Route path='*' element={<div>Not found</div>} />

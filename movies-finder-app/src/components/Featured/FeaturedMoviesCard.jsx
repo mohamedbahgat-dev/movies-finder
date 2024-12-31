@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import moviesData from '../../data/movies.json'
-import MovieCard from '../MovieCard';
+import MovieCard from './MovieCard';
 import { useMovieStore } from '../../store/moviesStore';
 
 

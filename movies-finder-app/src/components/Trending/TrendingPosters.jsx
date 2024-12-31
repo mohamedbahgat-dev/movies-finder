@@ -7,6 +7,10 @@ import TrendingTrailers from './TrendingTrailers'
 
 function TrendingPosters() {
 
+    const [posterActive, setPosterActive] = useState(true) 
+    const [trailerActive, setTrailerActive] = useState(false) 
+
+
 
     const trendings = useMovieStore(state => state.trendings)
     const setTrendings = useMovieStore(state => state.setTrendings)
@@ -66,38 +70,39 @@ function TrendingPosters() {
        
 
     const showPosters = ()=>{
-      postersRef.current.className = 'flex flex-nowrap gap-5'
+      postersRef.current.className = 'flex flex-nowrap gap-5 animate-fadeIn'
       trailersRef.current.className = 'hidden'
       setPosterActive(true)
       setTrailerActive(false)
     }
 
+
     const showTrailers = ()=> { 
       fetchTrailersData()
-      setTimeout(()=> {
-        postersRef.current.className = 'hidden'
-        trailersRef.current.className = 'flex flex-nowrap'
-      },1000)  
+      postersRef.current.className = 'hidden'
+      trailersRef.current.className = 'flex flex-nowrap animate-fadeIn'
+      setPosterActive(false)
+      setTrailerActive(true)
     }
     
   return (
     <div>
          <div className='flex items-center gap-5 relative top-14'>
-           <h1 className='ml-32 font-poppins text-xl text-white font-semibold '>Trending Now</h1>
-           <div className='border rounded-3xl border-green-500 font-nunito'>
-             <button className= 'text-white p-1 px-3 rounded-2xl'
+           <h1 className='ml-32 font-poppins text-xl text-white'>Trending Now</h1>
+           <div className='border rounded-3xl border-green-500 font-poppins font-normal text-white '>
+             <button className= {`px-3 rounded-2xl ${posterActive ? 'text-blue-950 bg-gradient-to-r from-green-100 to-green-300 border border-green-400': ''}` }
                       onClick={showPosters}
                       >Posters
                      
              </button>
-             <button className='text-white p-1 px-3 rounded-2xl'
+             <button className={`px-3 rounded-2xl ${trailerActive ? 'text-blue-950 bg-gradient-to-r from-green-100 to-green-300 border border-green-400': ''}` }
                       onClick={showTrailers}
                       >See Trailers
              </button>
            </div>
         </div>
 
-        <div className='trending-background w-full pt-8 px-8 items-center overflow-x-scroll border-x-[80px] border-x-transparent' 
+        <div className='trending-background w-full h-[350px] items-center overflow-x-scroll border-x-[80px] border-x-transparent' 
               >  
             <div className='flex flex-nowrap gap-5' ref={postersRef}>
               {trendings.map((trend)=> (  
@@ -107,7 +112,7 @@ function TrendingPosters() {
                  ))} 
             </div>   
             
-            <div className='flex flex-nowrap' ref={trailersRef}>
+            <div className='hidden flex-nowrap' ref={trailersRef}>
               {trailers.map((trailer)=> (
                 <div key={trailer.id}>
                     <TrendingTrailers trailer={trailer} /> 

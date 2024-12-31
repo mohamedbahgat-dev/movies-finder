@@ -21,7 +21,8 @@ function TrendingTrailers(props) {
                         src={`https://www.youtube.com/embed/${trailer.key}`}
                         title={trailer.name}
                         allow='picture-in-picture'
-                         >
+                        loading='lazy'
+                        >
                 </iframe>
                 
            </div>
