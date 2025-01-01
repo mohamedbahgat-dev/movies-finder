@@ -74,13 +74,13 @@ function PopularCards() {
               {/* section header */}
             <div className='flex mt-6'>
                  <span className='ml-[120px] font-poppins text-xl'>Popular Now</span>
-                 <div className=' flex items-center justify-around ml-8 w-36 text-base border-2 font-semibold rounded-3xl border-green-400'>
-                    <button className= {`px-[18px] rounded-2xl ${moviesActive ? 'text-blue-950 bg-gradient-to-r from-green-100 to-green-600': ''}` }
+                 <div className=' flex items-center justify-around ml-8 w-36 text-base border-2 font-semibold rounded-3xl border-cyan-200'>
+                    <button className= {`px-[18px] rounded-2xl ${moviesActive ?  'text-gray-800 bg-gradient-to-r from-sky-100 to-cyan-500 transition-all duration-500': ''}` }
                             onClick={showMovies}
                             >Movies
                      
                     </button>
-                    <button className={`px-[16px] rounded-2xl ${tvActive? 'text-blue-950 bg-gradient-to-l from-green-100 to-green-600': ''}` }
+                    <button className={`px-[16px] rounded-2xl ${tvActive? ' text-gray-800 bg-gradient-to-r from-sky-100 to-cyan-500 transition-all duration-500': ''}` }
                             onClick={showTv}
                             >Tv
                     </button>

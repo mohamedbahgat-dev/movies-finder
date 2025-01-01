@@ -42,7 +42,7 @@ function MovieCard(props) {
     const hideData = () => {
         dataRef.current.className = 'hidden'
         titleRef.current.className = 'block'
-        imageRef.current.className = [...['w-60 h-80 object-cover rounded-2xl shadow-xl cursor-pointer mb-3']]
+        imageRef.current.className = [...['w-60 h-64 object-cover rounded-2xl shadow-xl cursor-pointer mb-3']]
     }
     
     //store current viewed movie in local storage to save the movie viewd page
@@ -119,13 +119,13 @@ function MovieCard(props) {
         <div>
             <div>
                                              {/* card container ----start------ */}
-                <div className='ml-12 p-2 text-center w-60 h-auto mb-5 backdrop-blur-sm bg-blue-200/30 rounded-2xl drop-shadow-lg'>
+                <div className='ml-12 p-2 text-center w-52 h-auto mb-3 backdrop-blur-sm bg-blue-200/30 rounded-2xl drop-shadow-lg'>
                     {/* visible part of movie card */}
                     <div >
                               {/* movie full poster poster  */}
                             
                         <img id='movie-image'
-                            className='w-60 h-80 object-cover rounded-3xl shadow-xl cursor-pointer mb-3 relative'
+                            className='w-60 h-64 object-cover rounded-3xl shadow-xl cursor-pointer mb-3 relative'
                             src={movie.Poster} alt='movie poster'
                             ref={imageRef}
                             onClick={displayData} />
@@ -176,7 +176,7 @@ function MovieCard(props) {
                         
                             {/* movie main card movie title */}
                         <span id='card-title'
-                            className=' inline-block text-gray-700 font-bold uppercase'
+                            className=' inline-block text-gray-700 font-popins'
                             ref={titleRef}
                             >{movie.Title}
                         </span>
@@ -190,20 +190,20 @@ function MovieCard(props) {
                             <span className='text-xs mr-3 font-poppins'>{movie.Type}</span>
 
                         </div>
-                        <span className='block text-[12px] text-start'>{movie.Plot}</span>
+                        {/* <span className='block text-[12px] text-start'>{movie.Plot}</span> */}
 
                         <div className='flex mt-3'>
                             <div className='flex items-center mr-5'>
                                 <img className='w-6 mr-1' src='../src/assets/tomato.png' />
                                 <span className='text-xs font-poppins font-semibold'>{rotten}</span>
                             </div>
-                            <div className='flex items-center ml-5'>
+                            <div className='flex items-center mr-4'>
                                 <img className='w-6 mr-1' src='../src/assets/IMDB.png' />
                                 <span className='text-xs font-poppins font-semibold'>{movie.imdbRating}</span>
                             </div>
 
                             <div className='flex items-center'>
-                                <span className='mr-1 ml-7 text-xs text-gray-500'>Year</span>
+                                {/* <span className='mr-1 ml-7 text-xs text-gray-500'>Year</span> */}
                                 <span className=' text-sm font-poppins ml-1 text-start'>{movie.Year}</span>
                             </div>
 

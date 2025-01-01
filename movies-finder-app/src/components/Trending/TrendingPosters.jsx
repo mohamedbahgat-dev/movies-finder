@@ -2,30 +2,53 @@ import  { useState ,useEffect, useRef} from 'react'
 import trendingDay from '../../data/trendingDay.json'
 import TrendingCard from './TrendingCard'
 import { useMovieStore } from '../../store/moviesStore'
-import { fetchMovieTrailer, fetchTvTrailer } from '../../services/tmdbServices'
+import { fetchTrendingDay, fetchMovieTrailer, fetchTvTrailer } from '../../services/tmdbServices'
 import TrendingTrailers from './TrendingTrailers'
+import { useMessageStore } from '../../store/useMessageStore'
 
 function TrendingPosters() {
 
+    const [trendings, setTrendings] = useState([])
+  
     const [posterActive, setPosterActive] = useState(true) 
     const [trailerActive, setTrailerActive] = useState(false) 
-
-
-
-    const trendings = useMovieStore(state => state.trendings)
-    const setTrendings = useMovieStore(state => state.setTrendings)
-    const trailers = useMovieStore(state => state.trailers)
-    const AddToTrailers = useMovieStore(state => state.addToTrailers)
-
-
+    
     const postersRef = useRef()
     const trailersRef = useRef()
 
+    
+    const AddToTrailers = useMovieStore(state => state.addToTrailers)
+    const trailers = useMovieStore(state => state.trailers)
+    const setStoreTrendings = useMovieStore(state => state.setTrendings)
+   
+
       
     useEffect(()=>{
-        setTrendings((trendingDay.results).slice(0,10))
-        
+        getDayTrends()
+    
     },[])
+
+    useEffect(()=>{
+        setStoreTrendings(trendings)
+    
+    },[])
+
+    
+
+    const getDayTrends = async () => {
+            try {
+              await fetchTrendingDay()
+                   .then(response => {
+                          if (!response.ok) {
+                          useMessageStore.getState().setMessage('Movie not found', 'Error')
+                       }
+                          return response.json()
+                  }).then(data => { setTrendings(data['results']) })       
+        
+            } catch (error) {
+              useMessageStore.getState().setMessage('Movie not found', 'Error')
+            }
+          }
 
     const fetchTrailersData = () => {
 
@@ -67,8 +90,7 @@ function TrendingPosters() {
      }      
     })
   }
-       
-
+   
     const showPosters = ()=>{
       postersRef.current.className = 'flex flex-nowrap gap-5 animate-fadeIn'
       trailersRef.current.className = 'hidden'
@@ -84,7 +106,7 @@ function TrendingPosters() {
       setPosterActive(false)
       setTrailerActive(true)
     }
-    
+
   return (
     <div>
          <div className='flex items-center gap-5 relative top-14'>
@@ -102,7 +124,7 @@ function TrendingPosters() {
            </div>
         </div>
 
-        <div className='trending-background w-full h-[350px] items-center overflow-x-scroll border-x-[80px] border-x-transparent' 
+        <div className='trending-background w-full h-[400px] items-center overflow-x-scroll border-x-[80px] border-x-transparent' 
               >  
             <div className='flex flex-nowrap gap-5' ref={postersRef}>
               {trendings.map((trend)=> (  
@@ -112,13 +134,23 @@ function TrendingPosters() {
                  ))} 
             </div>   
             
-            <div className='hidden flex-nowrap' ref={trailersRef}>
+              <div className='hidden flex-nowrap' ref={trailersRef}>
               {trailers.map((trailer)=> (
-                <div key={trailer.id}>
+                <div>
+                  {trailer && 
+                  <div key={trailer.id}>
                     <TrendingTrailers trailer={trailer} /> 
-                </div>                
+                  </div> 
+                  }
+                </div>
+                 
+             
+                              
               ))}
             </div>
+
+           
+            
             
                        
         </div> 

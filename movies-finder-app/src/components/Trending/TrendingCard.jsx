@@ -93,7 +93,7 @@ function TrendingCard(props) {
                     
                                                     {/* hamburger menu icon */}
                     <div onClick={showHamburgerList}
-                          className='relative top-[90px] left-[15px] w-6 bg-gray-300 rounded-full opacity-90 hover:bg-teal-800 hover:cursor-pointer'>
+                          className='relative top-[110px] left-[15px] w-6 bg-gray-300 rounded-full opacity-90 hover:bg-teal-800 hover:cursor-pointer'>
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6">
                           <path fillRule="evenodd" d="M4.5 12a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm6 0a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm6 0a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Z" clipRule="evenodd" />
                       </svg>
@@ -137,13 +137,15 @@ function TrendingCard(props) {
                         </div>                           
                     </div>
 
-
-                    <div div className='flex flex-col rounded-2xl flex-nowrap justify-center items-center w-[350px] h-64 mt-10 mb-3 hover:scale-105'>    
-                      <img className='w-[350px] object-cover h-48 rounded-lg shadow-xl cursor-pointer'
-                            src={`https://image.tmdb.org/t/p/w500${trend.backdrop_path}`}  
-                            />
-                      <span className='text-center  rounded-2x text-white drop-shadow-lg font-nunito font-semibold mt-2'>{trend.name || trend.title}</span>              
-                    </div>
+                       {/* Main card contents */}
+                    <div className='mt-5'>
+                        <div div className='flex flex-col rounded-2xl flex-nowrap justify-center items-center w-[350px] h-56 mt-16 hover:scale-105'>    
+                          <img className='w-[350px] object-cover h-48 rounded-lg shadow-xl cursor-pointer'
+                               src={`https://image.tmdb.org/t/p/w500${trend.backdrop_path}`}/>              
+                        </div>
+                        <span className='text-center rounded-2x text-white drop-shadow-lg font-nunito font-semibold'>{trend.name || trend.title}</span>
+                    </div>   
+                    
 
                   </div> 
               </Link>

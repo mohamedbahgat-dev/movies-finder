@@ -15,7 +15,7 @@ function FeaturedMoviesWeek() {
   return (
 
     <div id='slider'>
-      <div id='movie-gallary' className='flex items-center overflow-x-scroll mt-8 snap-x snap-mandatory backdrop-blur-lg '>
+      <div id='movie-gallary' className='flex items-center overflow-x-scroll mt-3 snap-x snap-mandatory backdrop-blur-lg '>
         
         {movies.map(movie =>
           <div id='movie-item'

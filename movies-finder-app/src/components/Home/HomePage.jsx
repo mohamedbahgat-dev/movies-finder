@@ -4,6 +4,9 @@ import FeatureMoviesHeader from '../Featured/FeatureMoviesHeader'
 import { Outlet } from 'react-router-dom'
 import TrendingPosters from '../Trending/TrendingPosters'
 import PopularCards from '../Popular/PopularCards'
+import TrendingAllCards from '../TrendingAll/TrendingAllCards'
+import StreamingCards from '../Streaming/StreamingCards'
+import ExploreCards from '../Explore/ExploreCards'
 
 function HomePage() {
 
@@ -17,14 +20,10 @@ function HomePage() {
          <Outlet />
          <TrendingPosters />
          <PopularCards />
-        
-       
-         
-        
-
-        
-        
-            
+         <TrendingAllCards />
+         <StreamingCards />
+         <ExploreCards />
+                          
     </div>
 
   )
