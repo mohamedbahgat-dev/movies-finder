@@ -43,15 +43,15 @@ function SearchBar() {
 
   return (
        <div>
-          <div className='search-backdrop flex justify-center mb-10 text-white font-poppins items-center w-screen h-[380px] relative'>
+          <div className='search-backdrop flex flex-nowrap items-center h-[380px] text-white font-poppins w-screen  relative'>
           {/* input data form -- start-- */}
-              <div className='absolute left-[280px] font-nunito font-semibold'>
-                <h1 className='top-52 text-5xl'>Explore your Passion.</h1>
-                <h1 className='top-64 text-3xl'>Search for your favorite show among millions of shows.</h1>
+              <div className='absolute flex flex-col ml-20 mt-10 font-nunito font-semibold'>
+                <h1 className='top-52 text-4xl'>Explore your Passion.</h1>
+                <h1 className='top-64 text-2xl'>Search for your favorite show among millions of shows.</h1>
               </div>
                 
-              <form  onSubmit={handleSubmit} className='bg-gray-100 mt-52 rounded-xl' >
-                <input className='w-[800px] h-12 mx-3 px-2 bg-gray-100 text-gray-700 rounded-lg focus:outline-none placeholder:font-nunito'
+              <form  onSubmit={handleSubmit} className=' flex bg-gray-100 mt-60 ml-20 rounded-3xl' >
+                <input className='mx-3 px-2 bg-gray-100 text-gray-700 rounded-xl focus:outline-none placeholder:font-nunito w-64 sm:w-[500px] md:w-[400px] lg:w-[500px] xl:w-[800px]'
                 type='text'
                 id='title'
                 ref={queryRef}
@@ -60,7 +60,7 @@ function SearchBar() {
               />
 
                 <button 
-                className=" text-black bg-sky-500 p-1 h-12 px-4 rounded-xl" type='submit'>
+                className=" text-black bg-sky-500 p-1 h-12 px-4 rounded-3xl" type='submit'>
                   Search
                 </button>
             </form>

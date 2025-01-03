@@ -6,10 +6,6 @@
 @tailwind components;
 @tailwind utilities;
 
-*:root {
-  margin-bottom: 40px;
-}
-
 ::-webkit-scrollbar {
   height: 10px;
   width: 5px;
@@ -64,7 +60,8 @@
   transform: rotate(calc(((var(--i) - 50) * 0.01turn)));
 }
 
-.search-backdrop {
+.search-backdrop,
+.footer {
   background-image: linear-gradient(#34c6ff, rgb(51, 75, 102)),
     url("assets/backdrop.jpeg");
   /* background-color: #26667f; */
@@ -106,8 +103,8 @@
 
 .score-container .score-progress {
   position: relative;
-  width: 40px;
-  height: 40px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   color: #fff;
   background: rgba(63, 54, 54, 0.7)

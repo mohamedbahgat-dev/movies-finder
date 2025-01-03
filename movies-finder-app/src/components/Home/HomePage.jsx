@@ -7,6 +7,7 @@ import PopularCards from '../Popular/PopularCards'
 import TrendingAllCards from '../TrendingAll/TrendingAllCards'
 import StreamingCards from '../Streaming/StreamingCards'
 import ExploreCards from '../Explore/ExploreCards'
+import Footer from '../Footer/Footer'
 
 function HomePage() {
 
@@ -23,6 +24,7 @@ function HomePage() {
          <TrendingAllCards />
          <StreamingCards />
          <ExploreCards />
+         <Footer />
                           
     </div>
 

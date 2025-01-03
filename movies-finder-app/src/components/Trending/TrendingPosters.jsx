@@ -15,25 +15,17 @@ function TrendingPosters() {
     
     const postersRef = useRef()
     const trailersRef = useRef()
-
     
     const AddToTrailers = useMovieStore(state => state.addToTrailers)
     const trailers = useMovieStore(state => state.trailers)
     const setStoreTrendings = useMovieStore(state => state.setTrendings)
-   
+    
 
       
     useEffect(()=>{
         getDayTrends()
-    
     },[])
 
-    useEffect(()=>{
-        setStoreTrendings(trendings)
-    
-    },[])
-
-    
 
     const getDayTrends = async () => {
             try {
@@ -63,7 +55,7 @@ function TrendingPosters() {
                     }).then(data => {
                           let result = Array.from(data.results).filter((item)=> item.type === 'Trailer')[0]
                           if(trailers.length < trendings.length){
-                             AddToTrailers((result))
+                             AddToTrailers(({...result, backdrop_path:trend.backdrop_path, title: trend.title || trend.name}))
                           }
                           })
                          
@@ -81,7 +73,7 @@ function TrendingPosters() {
                   }).then(data => {
                           let result = Array.from(data.results).filter((item)=> item.type === 'Trailer')[0]                             
                           if(trailers.length < trendings.length){
-                             AddToTrailers((result))
+                             AddToTrailers(({...result, backdrop_path:trend.backdrop_path, title: trend.title || trend.name}))
                           }
                         })
             } catch(error) {console.log(error)}
@@ -101,11 +93,13 @@ function TrendingPosters() {
 
     const showTrailers = ()=> { 
       fetchTrailersData()
+      setStoreTrendings(trendings)
       postersRef.current.className = 'hidden'
       trailersRef.current.className = 'flex flex-nowrap animate-fadeIn'
       setPosterActive(false)
       setTrailerActive(true)
     }
+
 
   return (
     <div>
@@ -124,7 +118,7 @@ function TrendingPosters() {
            </div>
         </div>
 
-        <div className='trending-background w-full h-[400px] items-center overflow-x-scroll border-x-[80px] border-x-transparent' 
+        <div className='trending-background w-full h-[380px] items-center justify-center overflow-x-scroll border-x-[80px] border-x-transparent' 
               >  
             <div className='flex flex-nowrap gap-5' ref={postersRef}>
               {trendings.map((trend)=> (  
@@ -134,25 +128,17 @@ function TrendingPosters() {
                  ))} 
             </div>   
             
-              <div className='hidden flex-nowrap' ref={trailersRef}>
+            <div className='hidden flex-nowrap gap-5' ref={trailersRef}>
               {trailers.map((trailer)=> (
-                <div>
-                  {trailer && 
-                  <div key={trailer.id}>
-                    <TrendingTrailers trailer={trailer} /> 
-                  </div> 
-                  }
-                </div>
-                 
-             
-                              
+                <div key={trailer.key}>
+                  {trailer &&  
+                     <div > 
+                         <TrendingTrailers trailer={trailer}/>                                   
+                     </div>
+                     }
+                </div>                                                  
               ))}
-            </div>
-
-           
-            
-            
-                       
+            </div>                   
         </div> 
     </div>
   )

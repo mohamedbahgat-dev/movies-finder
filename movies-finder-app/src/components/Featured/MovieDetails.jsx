@@ -23,23 +23,24 @@ function MovieDetails() {
         <div>             
           <div>
               <div id='background' className='flex drop-shadow-xl justify-center relative'>
-                 <img className='w-full h-[600px] justify-center opacity-30 blur-sm' src={movie.Poster} />
+                 <img className='w-full h-[600px] justify-center opacity-20 blur-sm' src={movie.Poster} />
               </div>
 
               <div className='flex justify-around text-white absolute top-28 mx-10'>
-                <div className='flex flex-col'>
-                   <img className='shadow-xl w-[400px] h-[450px] rounded-t-lg' src={movie.Poster} />
-                   <h3 className='bg-blue-950 h-10 text-center items-center pt-1.5 rounded-b-lg opacity-80'>{movie.Released}</h3>
-                </div>
+                  <div className='flex flex-col'>
+                      <img className='shadow-xl w-[400px] h-[450px] rounded-t-lg' src={movie.Poster} />
+                      <h3 className='bg-blue-950 h-10 text-center items-center pt-1.5 rounded-b-lg opacity-80'>{movie.Released}</h3>
+                  </div>
+
 
                 <div className="flex justify-between">
 
                
                  <div className='ml-7 mt-3'>
-                  <div className='flex mb-1 items-baseline'>
-                      <h2 className='text-3xl font-nunito uppercase font-semibold'>{movie.Title}</h2>
-                      <h2 className='text-lg mx-2'>{movie.Year}</h2>                     
-                 </div>
+                    <div className='flex mb-1 items-baseline'>
+                        <h2 className='text-3xl font-nunito uppercase font-semibold'>{movie.Title}</h2>
+                        <h2 className='text-lg mx-2'>{movie.Year}</h2>                     
+                    </div>
 
                   <div className='flex items-baseline mt-3'>
                      <span className='font-thin uppercase border p-1 hover:bg-teal-600'>{movie.Type}</span>
