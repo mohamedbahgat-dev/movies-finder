@@ -37,7 +37,7 @@ function SearchBar() {
     queryRef.current.value = ''
 
     setTimeout(() => {
-            setTimeout(navigate("/search"));
+            setTimeout(navigate("/explore"));
         }, 1000)
   }
 
@@ -45,13 +45,13 @@ function SearchBar() {
        <div>
           <div className='search-backdrop flex flex-nowrap items-center h-[380px] text-white font-poppins w-screen  relative'>
           {/* input data form -- start-- */}
-              <div className='absolute flex flex-col ml-20 mt-10 font-nunito font-semibold'>
-                <h1 className='top-52 text-4xl'>Explore your Passion.</h1>
-                <h1 className='top-64 text-2xl'>Search for your favorite show among millions of shows.</h1>
+              <div className='absolute mt-[-80px] flex flex-col ml-20 font-nunito font-semibold'>
+                <h1 className='text-4xl'>Explore your Passion.</h1>
+                <h1 className='text-2xl'>Search for your favorite show among millions of shows.</h1>
               </div>
                 
-              <form  onSubmit={handleSubmit} className=' flex bg-gray-100 mt-60 ml-20 rounded-3xl' >
-                <input className='mx-3 px-2 bg-gray-100 text-gray-700 rounded-xl focus:outline-none placeholder:font-nunito w-64 sm:w-[500px] md:w-[400px] lg:w-[500px] xl:w-[800px]'
+              <form  onSubmit={handleSubmit} className=' flex bg-gray-100 mt-20 ml-20 rounded-3xl' >
+                <input className='mx-3 px-2 bg-gray-100 text-gray-700 rounded-xl focus:outline-none placeholder:font-nunito w-64 sm:w-[400px] md:w-[600px] lg:w-[800px] xl:w-[1000px]'
                 type='text'
                 id='title'
                 ref={queryRef}

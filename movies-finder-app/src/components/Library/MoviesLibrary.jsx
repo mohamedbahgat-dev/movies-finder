@@ -1,4 +1,5 @@
 import { useMovieStore } from "../../store/moviesStore";
+import HomeNavBar from "../Header/NavBar";
 
 
 function MoviesLibrary() {
@@ -10,7 +11,11 @@ function MoviesLibrary() {
 
   return (
 
-    <div>MoviesLibrary</div>
+      <div>
+        <HomeNavBar />
+        <div>My library</div>
+      
+      </div>
   )
 }
 

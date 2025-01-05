@@ -17,7 +17,7 @@ function FeaturedMoviesCard() {
 
   return (
 
-    <div id='slider'>
+    <div>
       <div  className='flex items-center overflow-x-scroll snap-x snap-mandatory  backdrop-blur-lg relative'>
         
           {movies.map(movie =>

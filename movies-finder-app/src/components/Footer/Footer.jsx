@@ -10,10 +10,10 @@ function Footer() {
             </div>
             
             <div className='flex flex-col justify-center items-center text-gray-400'>
-                <span className='p-1 rounded-xl mr-16 font-nunito text-lg font-semibold'>Mohamed Bahgat</span>     
+                <span className='p-1 rounded-xl mr-16 font-nunito text-lg font-semibold  max-[700px]:ml-8 '>Mohamed Bahgat</span>     
             </div>   
         </div>
-        <span className='text-center text-sm text-gray-500 font-chivo'>&copy;2025</span>
+        <span className='text-center text-sm text-gray-500 font-chivo max-[700px]:ml-12'>&copy;2025</span>
     </div>
   )
 }

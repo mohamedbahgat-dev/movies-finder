@@ -132,7 +132,7 @@ function TrendingAllCard(props) {
                {/* score percentage */}
          <div className='score-container top-[250px] left-1 z-10 w-16 mr-5'>
             <div className='score-progress' style={{ "--i": movie.vote_average,"--clr": `${movie.vote_average >= '6' ? '#43f949': '#e5544b'}` }}>
-               <h3 className='absolute top-[13px] left-[11px] text-[10px] z-10 font-semibold'>{Math.round(movie.vote_average * 10)}<sup className="text-[6px]">%</sup></h3>
+               <h3 className='absolute text-center top-[16px] left-[5px] w-10 text-xs z-10 font-semibold'>{Math.round(movie.vote_average * 10)}<sup className="text-[6px]">%</sup></h3>
             </div>
         </div> 
            

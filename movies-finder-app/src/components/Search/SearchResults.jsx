@@ -1,8 +1,7 @@
 import { useEffect, useState, useRef } from 'react'
 import { fetchTmdbQuery } from '../../services/tmdbServices'
 import { Link } from 'react-router-dom'
-import PagesNavBar from '../PagesNavBar'
-import Footer from '../Footer/Footer'
+import HomeNavBar from '../Header/NavBar'
 
 
 function SearchResults() {
@@ -43,7 +42,7 @@ function SearchResults() {
   
   return (
     <div>
-       <PagesNavBar />
+       <HomeNavBar />
         <div>
 
                {/* Search bar --start-- */}
@@ -82,7 +81,6 @@ function SearchResults() {
          </div> 
               {/* results area --ends--  */}
         </div> 
-        <Footer />
     </div>
   )
 }

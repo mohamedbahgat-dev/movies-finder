@@ -32,7 +32,13 @@ function StreamingCards() {
                       useMessageStore.getState().setMessage('Movie not found', 'Error')
                    }
                       return response.json()
-              }).then(data => { setPlayingMovies(data['results']) })       
+              }).then(data => { 
+                let movieData = []
+                Array.from(data['results']).forEach((movie)=> {
+                  movieData.push({...movie, media_type:'movie'})
+                  setPlayingMovies(movieData)
+                })
+               })       
     
         } catch (error) {
           useMessageStore.getState().setMessage('Movie not found', 'Error')
@@ -48,7 +54,13 @@ function StreamingCards() {
                       useMessageStore.getState().setMessage('Movie not found', 'Error')
                    }
                       return response.json()
-              }).then(data => { setOnAirTV(data['results']) })       
+              }).then(data => { 
+                let onair = []
+                Array.from(data['results']).forEach((show)=> {
+                  onair.push({...show, media_type:'tv'})
+                  setOnAirTV(onair)
+                })
+               })       
     
         } catch (error) {
           useMessageStore.getState().setMessage('Movie not found', 'Error')
@@ -63,7 +75,13 @@ function StreamingCards() {
                       useMessageStore.getState().setMessage('Movie not found', 'Error')
                    }
                       return response.json()
-              }).then(data => { setAiringToday(data['results']) })       
+              }).then(data => { 
+                let air = []
+                Array.from(data['results']).forEach((airing)=> {
+                  air.push({...airing, media_type:'tv'})
+                  setAiringToday(air)
+                })
+               })       
     
         } catch (error) {
           useMessageStore.getState().setMessage('Movie not found', 'Error')

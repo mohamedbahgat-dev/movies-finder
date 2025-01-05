@@ -133,7 +133,7 @@
   transform: rotate(calc((((var(--i) * 10) - 50) * 0.01turn)));
 }
 
-#slider::before {
+.slider::before {
   content: " ";
   background: linear-gradient(
     to right,
@@ -146,7 +146,7 @@
   z-index: 2;
 }
 
-#slider::after {
+.slider::after {
   content: " ";
   background: linear-gradient(
     to left,
@@ -159,20 +159,31 @@
   z-index: 2;
 }
 
-#slider::before {
-  left: 0;
-  top: 450px;
+.slider::before {
+  left: 0px;
+  top: 800px;
 }
 
-#slider::after {
-  right: 0;
-  top: 450px;
+.slider::after {
+  right: 385px;
+  top: 800px;
 }
 
 .trending-background {
-  background-image: url("assets/squid-2.jpg");
-  background-color: #28354f;
+  background-image: url("assets/backdrop1.jpeg");
+  background-color: #20252f;
   background-blend-mode: overlay;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.trending-bg {
+  background-image: url();
+
   background-repeat: no-repeat;
   background-attachment: fixed;
   -moz-background-size: cover;

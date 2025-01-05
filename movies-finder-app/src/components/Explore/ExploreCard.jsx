@@ -87,7 +87,7 @@ function ExploreCard(props) {
         
         <div className="relative top-6 left-0 z-10">
                     {/* options menu icon  */}
-            <div  onClick={showHamburgerList} className='absolute top-5 right-5 bg-gray-300 rounded-full opacity-90 hover:bg-teal-800 hover:cursor-pointer'>
+            <div  onClick={showHamburgerList} className='absolute top-7 right-6 bg-gray-300 rounded-full opacity-90 hover:bg-teal-800 hover:cursor-pointer'>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6">
                     <path fillRule="evenodd" d="M4.5 12a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm6 0a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm6 0a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Z" clipRule="evenodd" />
                 </svg>

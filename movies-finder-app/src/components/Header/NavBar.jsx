@@ -8,9 +8,9 @@ function HomeNavBar() {
 
     <>
       <div>
-        <header className='nav-backdrop relative'>
-            <nav className='absolute top-8 left-10 z-30 w-[94%]'>
-              <div className='flex flex-wrap items-center shadow-md font-poppins p-3 backdrop-blur-sm bg-white/30  rounded-xl '>
+        <header> 
+            <nav>
+              <div className='flex flex-wrap items-center bg-[#0e3359]  mr-[-5px] font-poppins p-3'>
                   
                   <Link to={'/'}>
                     <img className=' w-24 ml-10 bg-gradient-to-r from-cyan-500 to-blue-300  p-1 rounded-xl hover:cursor-pointer' 
@@ -19,7 +19,7 @@ function HomeNavBar() {
            
                   <ul className='flex ml-5'>
                     <li>
-                       <NavLink to=''
+                       <NavLink to='/'
                              className={({isActive})=>`mx-2 hover:text-sky-400 cursor-pointer ${isActive ? 'text-red-500': 'text-gray-200'}`}>
                              Home
                       </NavLink>
@@ -42,9 +42,8 @@ function HomeNavBar() {
                              Library
                       </NavLink>
                     </li>
-                  </ul>
-                  
-             </div>
+                  </ul>      
+              </div>
             </nav>
         </header>
       </div>

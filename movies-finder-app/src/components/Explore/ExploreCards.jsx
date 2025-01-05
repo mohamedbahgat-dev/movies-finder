@@ -32,7 +32,13 @@ function ExploreCards() {
                       useMessageStore.getState().setMessage('Movie not found', 'Error')
                    }
                       return response.json()
-              }).then(data => { setUpcomingMovies(data['results']) })       
+              }).then(data => { 
+                let upcomming = []
+                Array.from(data['results']).forEach((movie)=> {
+                  upcomming.push({...movie, media_type:'movie'})
+                  setUpcomingMovies(upcomming)
+                })
+               })       
     
         } catch (error) {
           useMessageStore.getState().setMessage('Movie not found', 'Error')
@@ -48,7 +54,13 @@ function ExploreCards() {
                       useMessageStore.getState().setMessage('Movie not found', 'Error')
                    }
                       return response.json()
-              }).then(data => { setTopRatedMovies(data['results']) })       
+              }).then(data => { 
+                let top = []
+                Array.from(data['results']).forEach((movie)=> {
+                  top.push({...movie, media_type:'movie'})
+                  setTopRatedMovies(top)
+                })
+               })       
     
         } catch (error) {
           useMessageStore.getState().setMessage('Movie not found', 'Error')
@@ -63,7 +75,13 @@ function ExploreCards() {
                       useMessageStore.getState().setMessage('Movie not found', 'Error')
                    }
                       return response.json()
-              }).then(data => { setTopRatedTv(data['results']) })       
+              }).then(data => { 
+                let ratedTv = []
+                Array.from(data['results']).forEach((tv)=> {
+                  ratedTv.push({...tv, media_type:'tv'})
+                  setTopRatedTv(ratedTv)
+                })
+               })       
     
         } catch (error) {
           useMessageStore.getState().setMessage('Movie not found', 'Error')
@@ -102,7 +120,7 @@ function ExploreCards() {
 
 
   return (
-    <div>
+    <div> 
         <div>
               {/* section header */}
             <div className='flex mt-5'>

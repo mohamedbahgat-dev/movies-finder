@@ -132,7 +132,7 @@ function TrendingPosters() {
               {trailers.map((trailer)=> (
                 <div key={trailer.key}>
                   {trailer &&  
-                     <div > 
+                     <div key={trailer.key} > 
                          <TrendingTrailers trailer={trailer}/>                                   
                      </div>
                      }

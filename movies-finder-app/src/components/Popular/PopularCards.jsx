@@ -29,7 +29,13 @@ function PopularCards() {
                       useMessageStore.getState().setMessage('Movie not found', 'Error')
                    }
                       return response.json()
-              }).then(data => { setPopularMovies(data['results']) })       
+              }).then(data => { 
+                let movieData = []
+                Array.from(data['results']).forEach((movie)=> {
+                  movieData.push({...movie, media_type:'movie'})
+                  setPopularMovies(movieData)
+                })
+               })       
     
         } catch (error) {
           useMessageStore.getState().setMessage('Movie not found', 'Error')
@@ -45,7 +51,14 @@ function PopularCards() {
                       useMessageStore.getState().setMessage('Movie not found', 'Error')
                    }
                       return response.json()
-              }).then(data => { setPopularTv(data['results']) })       
+              }).then(data => { 
+                  let tvData = []
+                  Array.from(data['results']).forEach((tv)=> {
+                     tvData.push({...tv, media_type:'tv'})
+                     setPopularTv(tvData)
+                })
+
+             })       
     
         } catch (error) {
           useMessageStore.getState().setMessage('Movie not found', 'Error')
@@ -80,7 +93,7 @@ function PopularCards() {
                             >Movies
                      
                     </button>
-                    <button className={`px-[16px] rounded-2xl ${tvActive? ' text-gray-800 bg-gradient-to-r from-sky-100 to-cyan-500 transition-all duration-500': ''}` }
+                    <button className={`px-[16px] rounded-2xl ${tvActive? 'text-gray-800 bg-gradient-to-r from-sky-100 to-cyan-500 transition-all duration-500': ''}` }
                             onClick={showTv}
                             >Tv
                     </button>

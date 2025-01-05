@@ -126,7 +126,7 @@ function TrendingAllCards() {
             </div>
 
             {/* cards area start */}
-            <div className='w-full h-[360px] items-center overflow-x-scroll border-x-[50px] border-x-transparent'>
+            <div className='trending-bg w-full h-[380px] items-center overflow-x-scroll border-x-[50px] border-x-transparent'>
                 <div className='flex gap-5 mx-5 items-center h-[350px] flex-nowrap' ref={dayRef}>
                     {trendingDay.map((movie)=> (
                         <div key={movie.id}>
