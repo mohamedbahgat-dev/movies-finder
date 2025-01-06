@@ -1,16 +1,13 @@
 import { useEffect, useState, useRef } from "react"
-import { Link } from 'react-router-dom'
+
 
 function TrendingPersonCard(props) {
 
     const [person, setPerson] = useState('')
-    const hamburgerListRef = useRef(null)
-
 
     useEffect(()=> {
         setPerson(props.person)
     })
-
 
   return (
     <div>

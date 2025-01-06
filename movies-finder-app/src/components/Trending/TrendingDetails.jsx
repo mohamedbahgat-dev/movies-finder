@@ -1,6 +1,5 @@
 
 import { useEffect, useRef, useState } from 'react'
-import { useParams } from 'react-router-dom'
 import moviesGenre from '../../data/moviesGenre.json'
 import tvGenre from '../../data/tvGenre.json'
 import HomeNavBar from '../Header/NavBar'
@@ -18,6 +17,7 @@ import { Modal } from '@mui/material'
 
 function TrendingDetails() {
 
+  //main data states management
   const [details, setDetails] = useState('')
   const [credits, setCredits] = useState('')
   const [images, setImages] = useState('')
@@ -488,7 +488,8 @@ function TrendingDetails() {
                               </Modal>
                           </div>: <div></div>}
                       </div>
-                                                                                 {/* Icons part ----end----- */}
+                                             {/* Icons part ----end----- */}
+
                              {/*movie overview part  */}
                       <div className='flex flex-col items-start'>
                          <span className='mt-5 text-xl font-poppins'>Overview</span>
@@ -498,8 +499,7 @@ function TrendingDetails() {
                </div>          
            </div> 
                        {/* Data container --ends-- */}
-
-                                       {/* show Details */}
+             {/* show Details */}
           
            <div>
                {/* casing block */}

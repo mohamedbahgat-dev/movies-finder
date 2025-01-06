@@ -3,20 +3,24 @@ import { useState, useEffect, useRef } from 'react'
 import ExploreCard from './ExploreCard'
 
 function ExploreCards() {
-
+     
+    //managing states 
     const [upcomingMovies, setUpcomingMovies] = useState([])
     const [topRatedMovies, setTopRatedMovies] = useState([])
     const [topRatedTv, setTopRatedTv] = useState([])
 
+
+    // managing activity states to navigate through diffrent sections
     const [upcomingActive, setUpcomingActive] = useState(true) 
     const [topRatedMovieActive, setTopRatedMovieActive] = useState(false) 
     const [topRatedTvActive, setTopRatedTvActive] = useState(false) 
-
+  
+    // refs to manage events 
     const upcomingRef = useRef()
     const ratedMovieRef = useRef()
     const ratedTvRef = useRef()
 
-
+    // calling fetch data funcs inside useeffect
     useEffect(()=> {
         getUpcomingMovies()
         getTopRatedMovies()
@@ -24,6 +28,8 @@ function ExploreCards() {
     },[])
 
 
+
+    // fetch data from API 
     const getUpcomingMovies = async () => {
         try {
           await fetchUpcomingMovies()
@@ -89,7 +95,7 @@ function ExploreCards() {
       }
 
       
-
+    // event functions to manage navigation throught different sections and show different data
     const showUpcomingMovies = ()=>{
       upcomingRef.current.className = 'flex gap-5 mx-5 mt-3  h-[310px] items-center flex-nowrap animate-fadeIn'
       ratedMovieRef.current.className = 'hidden'
@@ -99,7 +105,7 @@ function ExploreCards() {
       setTopRatedTvActive(false)
     }
 
-
+  
     const showTopRatedMovies = ()=>{
       upcomingRef.current.className = 'hidden'
       ratedMovieRef.current.className = 'flex gap-5 mx-5 mt-3  h-[310px] items-center flex-nowrap animate-fadeIn'

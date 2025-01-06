@@ -1,5 +1,4 @@
 import  { useState ,useEffect, useRef} from 'react'
-import trendingDay from '../../data/trendingDay.json'
 import TrendingCard from './TrendingCard'
 import { useMovieStore } from '../../store/moviesStore'
 import { fetchTrendingDay, fetchMovieTrailer, fetchTvTrailer } from '../../services/tmdbServices'
@@ -8,25 +7,28 @@ import { useMessageStore } from '../../store/useMessageStore'
 
 function TrendingPosters() {
 
+
+    //states
     const [trendings, setTrendings] = useState([])
-  
     const [posterActive, setPosterActive] = useState(true) 
     const [trailerActive, setTrailerActive] = useState(false) 
     
+    //refs
     const postersRef = useRef()
     const trailersRef = useRef()
     
+    //storage management using Zustand
     const AddToTrailers = useMovieStore(state => state.addToTrailers)
     const trailers = useMovieStore(state => state.trailers)
     const setStoreTrendings = useMovieStore(state => state.setTrendings)
     
-
       
     useEffect(()=>{
         getDayTrends()
     },[])
 
-
+    
+    //calling data from API
     const getDayTrends = async () => {
             try {
               await fetchTrendingDay()
@@ -42,8 +44,9 @@ function TrendingPosters() {
             }
           }
 
-    const fetchTrailersData = () => {
 
+    // calling trailers data from APi
+    const fetchTrailersData = () => {
      trendings.map((trend)=> {
       if(trend.media_type === 'movie'){
          const fetchMovie = async ()=> {
@@ -83,13 +86,13 @@ function TrendingPosters() {
     })
   }
    
+   // add events listiners
     const showPosters = ()=>{
       postersRef.current.className = 'flex flex-nowrap gap-5 animate-fadeIn'
       trailersRef.current.className = 'hidden'
       setPosterActive(true)
       setTrailerActive(false)
     }
-
 
     const showTrailers = ()=> { 
       fetchTrailersData()
@@ -108,8 +111,7 @@ function TrendingPosters() {
            <div className='border rounded-3xl border-green-500 font-poppins font-normal text-white '>
              <button className= {`px-3 rounded-2xl ${posterActive ? 'text-blue-950 bg-gradient-to-r from-green-100 to-green-300 border border-green-400': ''}` }
                       onClick={showPosters}
-                      >Posters
-                     
+                      >Posters             
              </button>
              <button className={`px-3 rounded-2xl ${trailerActive ? 'text-blue-950 bg-gradient-to-r from-green-100 to-green-300 border border-green-400': ''}` }
                       onClick={showTrailers}
@@ -126,8 +128,7 @@ function TrendingPosters() {
                      <TrendingCard trend={trend} />              
                 </div>                            
                  ))} 
-            </div>   
-            
+            </div>              
             <div className='hidden flex-nowrap gap-5' ref={trailersRef}>
               {trailers.map((trailer)=> (
                 <div key={trailer.key}>

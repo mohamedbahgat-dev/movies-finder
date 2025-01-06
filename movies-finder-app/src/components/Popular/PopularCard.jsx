@@ -80,11 +80,9 @@ function PopularCard(props) {
       }  
     }
 
-
+    
   return (
-
-    <div>
-        
+    <div>     
         <div className="relative top-8 left-1 z-10">
                     {/* options menu icon  */}
             <div  onClick={showHamburgerList} className='absolute top-5 right-5 bg-gray-300 rounded-full opacity-90 hover:bg-teal-800 hover:cursor-pointer'>

@@ -17,7 +17,6 @@ function TrendingCard(props) {
         localStorage.setItem('viewedMovie', JSON.stringify(trend))
     }
 
-
   return (
 
          <div>            

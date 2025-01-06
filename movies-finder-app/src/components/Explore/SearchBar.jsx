@@ -9,8 +9,11 @@ function SearchBar() {
 
   const [query, setQuery] = useState('')
   const [movies, setMovies] = useState([])
+
   const queryRef = useRef(null)
   let navigate = useNavigate()
+
+  // save search results in local storage so i can load and use it in another components
   localStorage.setItem('search-results', JSON.stringify(movies))
  
   // fetching data from API
@@ -30,7 +33,7 @@ function SearchBar() {
     }
   }
 
-  // submitting function to 
+  // calling fetch function and navigate to explore component to show search results in it
   const handleSubmit = (e) => {
     e.preventDefault()
     getMovieData()

@@ -4,10 +4,12 @@ import StreamingCard from './StreamingCard'
 
 function StreamingCards() {
 
+   //states 
     const [playingMovies, setPlayingMovies] = useState([])
     const [onAirTv, setOnAirTV] = useState([])
     const [AiringToday, setAiringToday] = useState([])
 
+    //activity states
     const [playingActive, setPlayingActive] = useState(true) 
     const [onAirActive, setOnAirActive] = useState(false) 
     const [AiringActive, setAiringActive] = useState(false) 
@@ -24,6 +26,7 @@ function StreamingCards() {
     },[])
 
 
+    // calling data From API
     const getPlayingMovies = async () => {
         try {
           await fetchPlayingMovies()
@@ -88,8 +91,7 @@ function StreamingCards() {
         }
       }
 
-      
-
+    // events to show different data when user click different buttons  
     const showPlayingMovies = ()=>{
       playingRef.current.className = 'flex gap-5 mx-5 mt-3  h-[310px] items-center flex-nowrap animate-fadeIn'
       onAirRef.current.className = 'hidden'

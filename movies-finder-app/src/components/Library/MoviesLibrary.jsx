@@ -4,24 +4,29 @@ import HomeNavBar from "../Header/NavBar";
 
 function MoviesLibrary() {
 
+  //states managment
   const [myList, setMylist] = useState([])
   const [favorites, setFavorites] = useState([])
   const [watchlist, setWatchlist] = useState([])
-
+  
+  //refs managment
   const mylistRef = useRef(null)
   const favoritesRef = useRef(null)
   const watchlistRef = useRef(null)
-
+ 
+  //nav bar activity states
   const [mylistActive, setMylistActive] = useState(true)
   const [favoritesActive, setFavoritesActive] = useState(false)
   const [watchlistActive, setWatchlistActive] = useState(false)
 
+   // calling data from local storage
   useEffect(()=> {
     setMylist(JSON.parse(localStorage.getItem('mylist')))
     setFavorites(JSON.parse(localStorage.getItem('favorites')))
     setWatchlist(JSON.parse(localStorage.getItem('watchlist')))
   },[])
 
+  //functions to add events to elements 
   const showMylist = ()=> {
     mylistRef.current.className = 'block animate-fadeIn'
     favoritesRef.current.className = 'hidden'
@@ -61,7 +66,6 @@ function MoviesLibrary() {
             <li  className={`mx-5 cursor-pointer  ${mylistActive ? 'transition-all duration-500 px-3 text-red-600 bg-blue-300 rounded-xl' : ''}`}
                  onClick={showMylist}
                  >My List</li>
-
             <li className={`mx-5 cursor-pointer ${favoritesActive ? 'transition-all duration-500 px-3 text-red-600 bg-blue-300 rounded-xl' : ''}`}
                 onClick={showFavorites}
                 >Favorites</li>

@@ -44,7 +44,6 @@ function SearchResults() {
     <div>
        <HomeNavBar />
         <div>
-
                {/* Search bar --start-- */}
           <div className='border-b justify-between w-screen bg-white h-10'>      
               <form  onSubmit={ handleSubmit} className='flex w-full'>
@@ -61,7 +60,7 @@ function SearchResults() {
                
                {/* results area --starts-- */}
           <div className='xl:grid xl:grid-cols-2 lg:grid lg:grid-cols-2 md:grid md:grid-col-2'>
-           {movies.map((movie) => (
+            {movies.map((movie) => (
              <div className='flex m-5 mb-8 border drop-shadow-md rounded-2xl overflow-hidden hover:shadow-lg' key={movie.id}>
                 <div>
                     <Link to={`/show/${movie.id}`}>
@@ -75,10 +74,10 @@ function SearchResults() {
                         </div>                           
                       </div>  
                     </Link>
-               </div>
-            </div>
-            ))}
-         </div> 
+                </div>
+              </div>
+             ))}
+           </div> 
               {/* results area --ends--  */}
         </div> 
     </div>

@@ -5,7 +5,6 @@ function TrendingTrailers(props) {
 
   
   const [trailer, setTrailer] = useState('')
-
   const [open, setOpen] = useState(false)
 
   useEffect(()=>{
@@ -42,9 +41,7 @@ function TrendingTrailers(props) {
               <div className='text-center h-5'>
                 <span className='rounded-2x text-white drop-shadow-lg font-poppins font-semibold'>{trailer.title}</span>
               </div>
-              
-              
-
+                {/* Popup modal for trailers */}
               <Modal  open={open} 
                       onClose={handleClose}
                       style={{position:'absolute', top:'780px', left:'23%', 

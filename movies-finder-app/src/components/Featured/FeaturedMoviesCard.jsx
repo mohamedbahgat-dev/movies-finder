@@ -8,8 +8,6 @@ function FeaturedMoviesCard() {
 
   const [movies, setMovies] = useState([])
   
-
-
   useEffect(() => {
     setMovies(moviesData)
     useMovieStore.getState().setLibraryMovies(movies)
@@ -18,8 +16,7 @@ function FeaturedMoviesCard() {
   return (
 
     <div>
-      <div  className='flex items-center overflow-x-scroll snap-x snap-mandatory  backdrop-blur-lg relative'>
-        
+      <div  className='flex items-center overflow-x-scroll snap-x snap-mandatory  backdrop-blur-lg relative'>     
           {movies.map(movie =>
           <div id='movie-item'
                className='snap-center' 
@@ -27,10 +24,7 @@ function FeaturedMoviesCard() {
             <MovieCard movie={movie}/>     
           </div>
          )}
-      </div>
-        
-        
-  
+      </div>  
     </div>
 
   )

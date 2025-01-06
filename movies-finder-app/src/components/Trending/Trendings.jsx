@@ -2,7 +2,7 @@ import HomeNavBar from '../Header/NavBar'
 import { useState, useEffect, useRef } from 'react'
 import { fetchTrendingMoviesWeek,fetchTrendingTvWeek,
    fetchTrendingDay, fetchTrendingWeek } from '../../services/tmdbServices'
-import { Link } from 'react-router-dom'
+
 
 function Trendings() {
 
@@ -16,7 +16,8 @@ function Trendings() {
   const [tvTrendActive, setTvTrendActive] = useState(false)
   const [dayTrendActive, setDayTrendActive] = useState(false)
   const [weekTrendActive, setWeekTrendActive] = useState(false)
-
+  
+  //managing ref states
   const movieWeekRef = useRef(null)
   const tvWeekRef = useRef(null)
   const dayRef = useRef(null)

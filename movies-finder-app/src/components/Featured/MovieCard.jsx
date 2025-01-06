@@ -5,20 +5,16 @@ import { Link } from 'react-router-dom'
 function MovieCard(props) {
 
     //states management
-
     const [movie, setMovie] = useState('')
     const [rotten, setRotten] = useState('')
     
     //Refs management
-
     const dataRef = useRef(null)
     const titleRef = useRef(null)
     const imageRef = useRef(null)
     const hamburgerListRef = useRef(null)
     
-
-    // side effects management
-    
+    // side effects management   
     useEffect(() => {
         setMovie(props.movie)
         let rottenValue = props.movie.Ratings.filter((rate) => rate.Source === 'Rotten Tomatoes')[0]
@@ -28,10 +24,7 @@ function MovieCard(props) {
             setRotten('N/A')
         }
     }, [])
-
-
-    // handle events functions
-
+ 
     // event to display hidden data on movie card
     const displayData = () => {
         dataRef.current.className = [...['block animate-fadeIn m-2']]

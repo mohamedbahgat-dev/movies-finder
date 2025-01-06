@@ -5,22 +5,25 @@ import PopularCard from './PopularCard'
 
 function PopularCards() {
 
+    // states managment
     const [popularMovies, setPopularMovies] = useState([])
     const [popularTv, setPopularTv] = useState([])
 
+    //activity states
     const [moviesActive, setMoviesActive] = useState(true) 
     const [tvActive, setTvActive] = useState(false) 
-
+ 
+    //references states
     const moviesRef = useRef()
     const tvRef = useRef()
-
 
     useEffect(()=> {
         getPopularMovies()
         getPopularTv()
     },[])
 
-
+ 
+    //fetching data from API
     const getPopularMovies = async () => {
         try {
           await fetchPopularMovies()
@@ -65,13 +68,13 @@ function PopularCards() {
         }
       }
 
+    // functions to add events to elements
     const showMovies = ()=>{
       moviesRef.current.className = 'flex gap-5 mx-5 mt-3 items-center flex-nowrap animate-fadeIn'
       tvRef.current.className = 'hidden'
       setMoviesActive(true)
       setTvActive(false)
     }
-
 
     const showTv = ()=> { 
       moviesRef.current.className = 'hidden'
@@ -99,7 +102,7 @@ function PopularCards() {
                     </button>
                 </div>    
             </div>
-
+            
             {/* cards area start */}
             <div className='w-full h-[380px] items-center overflow-x-scroll border-x-[50px] border-x-transparent'>
                 <div className='flex gap-5 mx-5 items-center flex-nowrap' ref={moviesRef}>
@@ -124,8 +127,6 @@ function PopularCards() {
                 </div>
             </div>
         </div>
-
-
     </div>
   )
 }

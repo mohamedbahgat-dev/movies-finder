@@ -109,7 +109,6 @@ function ShowDetails() {
           } catch (error) {
                  useMessageStore.getState().setMessage('Movie not found', 'Error')
         }
-
       }
     }
 
@@ -143,7 +142,6 @@ function ShowDetails() {
           } catch (error) {
                  useMessageStore.getState().setMessage('Movie not found', 'Error')
         }
-
       }
       setIsLoading(false)
     }
@@ -177,7 +175,6 @@ function ShowDetails() {
           } catch (error) {
                  useMessageStore.getState().setMessage('Movie not found', 'Error')
         }
-
       }
     }
 
@@ -210,7 +207,6 @@ function ShowDetails() {
           } catch (error) {
                  useMessageStore.getState().setMessage('Movie not found', 'Error')
         }
-
       }
     }
 
@@ -243,7 +239,6 @@ function ShowDetails() {
           } catch (error) {
                  useMessageStore.getState().setMessage('Movie not found', 'Error')
         }
-
       }
     }
 
@@ -276,7 +271,6 @@ function ShowDetails() {
           } catch (error) {
                  useMessageStore.getState().setMessage('Movie not found', 'Error')
         }
-
       }
     }
 
@@ -381,13 +375,13 @@ function ShowDetails() {
       e.preventDefaults()
       setOpenTrailer(true)
   }
-
+    
+    //handle closing trailer window
     const handleClose = ()=> {
       setOpenTrailer(false)
   }
 
   // filter trailer
-
     const filterTriler = ()=> {
       const filteredTrailer = Array.from(videos).filter((trailer)=> trailer.type === 'Trailer')[0]
       setTrailer(filteredTrailer)
@@ -492,11 +486,9 @@ function ShowDetails() {
                                       >
                                 </iframe>
                               </Modal>
-                          </div>: <div></div>}
-                          
-
+                          </div>: <div></div>}                     
                       </div>
-                                                                                 {/* Icons part ----end----- */}
+                     {/* Icons part ----end----- */}
                              {/*movie overview part  */}
                       <div className='flex flex-col items-start'>
                          <span className='mt-5 text-xl font-poppins'>Overview</span>
@@ -505,12 +497,10 @@ function ShowDetails() {
                       </div>  
                </div>          
            </div> 
-                       {/* Data container --ends-- */}
-
-                                       {/* show Details */}
-          
+                       {/* Data container --ends-- */}      
+                  {/* show Details */}        
            <div>
-               {/* casing block */}
+               {/* casting block */}
               <div>
                 <h2 className='my-8 mx-8 pl-2 text-xl font-semibold border-l-4 border-l-blue-950 border- font-poppins'>Cast</h2>
                 <div>
