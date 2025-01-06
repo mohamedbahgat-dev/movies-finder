@@ -13,8 +13,8 @@ function HomeNavBar() {
               <div className='flex flex-wrap items-center justify-between bg-[#0e3359]  mr-[-5px] font-poppins p-3'>
                   
                   <Link to={'/'}>
-                    <img className=' w-24 ml-20 max-[700px]:ml-44 max-[700px]:mb-5 bg-gradient-to-r from-cyan-500 to-blue-300  p-1 rounded-xl hover:cursor-pointer' 
-                         src="../../src/assets/logomania.png" />                  
+                    <span className=' w-24 px-3 text-white ml-20 text-lg max-[700px]:ml-44 max-[700px]:mb-5 bg-gradient-to-r from-cyan-500 to-blue-300  p-1 rounded-xl hover:cursor-pointer' 
+                         >Movie <span className='text-sm'>Mania</span></span>                 
                   </Link>
            
                   <ul className='flex mr-20 max-[700px]:ml-20'>
