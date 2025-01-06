@@ -14,7 +14,7 @@ function HomeNavBar() {
                   
                   <Link to={'/'}>
                     <img className=' w-24 ml-20 max-[700px]:ml-44 max-[700px]:mb-5 bg-gradient-to-r from-cyan-500 to-blue-300  p-1 rounded-xl hover:cursor-pointer' 
-                         src="src/assets/logomania.png" />                  
+                         src="../../src/assets/logomania.png" />                  
                   </Link>
            
                   <ul className='flex mr-20 max-[700px]:ml-20'>

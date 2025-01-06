@@ -147,7 +147,7 @@ function Trendings() {
     <div>
       <HomeNavBar />
       <div>
-        <div className='grid gap-5 m-10 grid-cols-5'>
+        <div className='grid gap-5 m-10 grid-cols-5 max-[850px]:flex max-[850px]:flex-col'>
 
             {/* sideBar */}
           <div className='col-span-1 border drop-shadow-sm shadow-lg rounded-xl overflow-hidden h-72' >
@@ -170,7 +170,7 @@ function Trendings() {
           <div className='col-span-4'>
             <div>
                 {/* Trending Movies block */}
-               <div className='hidden flex-wrap gap-5' ref={movieWeekRef}>
+               <div className='hidden flex-wrap gap-5 ' ref={movieWeekRef}>
                 {trendingMoviesWeek.map((movie)=> (        
                    <div key={movie.id}>
                      <div className='flex border w-[540px] rounded-xl overflow-hidden drop-shadow-md shadow-md'>
@@ -178,7 +178,7 @@ function Trendings() {
                           <img className='w-36'
                                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}/> 
                        </div>
-                       <div className='flex flex-col m-2'>
+                        <div className='flex flex-col m-2'>
                           <div className=''>
                              <h2 className=' float-left text-base w-60 font-sans font-semibold'>{movie.title || movie.name}</h2>
                              <h2 className=' float-right mr-3 font-chivo bg-blue-900 text-white px-2 mt-1 rounded-xl'>{movie.release_date || movie.first_air_date}</h2>
