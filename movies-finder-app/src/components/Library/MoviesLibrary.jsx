@@ -74,7 +74,9 @@ function MoviesLibrary() {
          <div>
            {/* mylist data */}
            <div className="block" ref={mylistRef}>
-             {myList.map((movie)=> (
+            {myList ?
+            <div>
+              {myList.map((movie)=> (
               <div className="flex m-5 border rounded-xl overflow-hidden shadow-lg"
                    key={movie.id}>
                  <div className="mr-3">
@@ -93,12 +95,16 @@ function MoviesLibrary() {
                  </div>               
               </div>
              ))}  
+              </div> : <div className="text-center bg-red-300 font-poppins p-3 ">My List is Empty</div>}
+             
            </div>
 
            {/* favorites data */}
 
            <div className="hidden" ref={favoritesRef}>
-             {favorites.map((movie)=> (
+            {favorites ? 
+             <div>
+               {favorites.map((movie)=> (
               <div className="flex m-5 border rounded-xl overflow-hidden shadow-lg"
                    key={movie.id}>
                  <div className="mr-3">
@@ -117,11 +123,16 @@ function MoviesLibrary() {
                  </div>               
               </div>
              ))}  
+
+            </div> :<div className="text-center bg-red-300 font-poppins p-3" >Favorites List is Empty </div>}
+            
            </div>
 
            {/* watchlist data */}
            <div className="hidden" ref={watchlistRef}>
-             {watchlist.map((movie)=> (
+            {watchlist ? 
+            <div>
+              {watchlist.map((movie)=> (
               <div className="flex m-5 border rounded-xl overflow-hidden shadow-lg"
                    key={movie.id}>
                  <div className="mr-3">
@@ -140,6 +151,9 @@ function MoviesLibrary() {
                  </div>               
               </div>
              ))}  
+              
+            </div> : <div className="text-center bg-red-300 font-poppins p-3">Watchlist is Empty</div>}
+             
            </div>
            
          </div>
