@@ -10,14 +10,14 @@ function HomeNavBar() {
       <div>
         <header> 
             <nav>
-              <div className='flex flex-wrap items-center bg-[#0e3359]  mr-[-5px] font-poppins p-3'>
+              <div className='flex flex-wrap items-center justify-between bg-[#0e3359]  mr-[-5px] font-poppins p-3'>
                   
                   <Link to={'/'}>
-                    <img className=' w-24 ml-10 bg-gradient-to-r from-cyan-500 to-blue-300  p-1 rounded-xl hover:cursor-pointer' 
+                    <img className=' w-24 ml-20 max-[700px]:ml-44 max-[700px]:mb-5 bg-gradient-to-r from-cyan-500 to-blue-300  p-1 rounded-xl hover:cursor-pointer' 
                          src="../src/assets/logomania.png" />                  
                   </Link>
            
-                  <ul className='flex ml-5'>
+                  <ul className='flex mr-20 max-[700px]:ml-20'>
                     <li>
                        <NavLink to='/'
                              className={({isActive})=>`mx-2 hover:text-sky-400 cursor-pointer ${isActive ? 'text-red-500': 'text-gray-200'}`}>

@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 
 function Trendings() {
 
- 
+  // states 
   const [trendingMoviesWeek, setTrendingMoviesWeek] = useState([])
   const [trendingTvWeek, setTrendingTvWeek] = useState([])
   const [trendingDay, setTrendingDay] = useState([])
@@ -22,6 +22,8 @@ function Trendings() {
   const dayRef = useRef(null)
   const weekRef = useRef(null)
   
+
+  // side effects to call fetch functions data 
   useEffect(()=> {
     getMoviesTrendWeek()
     getTvTrendWeek()
@@ -29,7 +31,8 @@ function Trendings() {
     getAllTrendsWeek()
   },[])
 
-
+  
+  // functions to fetch data
   const getMoviesTrendWeek = async () => {
         try {
           await fetchTrendingMoviesWeek()
@@ -189,15 +192,13 @@ function Trendings() {
                           <span className='text-sm mt-3'>{movie.overview.substr(0,90)}...</span>
                         </div>
                       </div>
-                    </div>
-            
+                    </div>           
                  ))}
                </div>
 
                {/* Trending Tv block */}
                <div className='hidden flex-wrap gap-5' ref={tvWeekRef}>
-                {trendingTvWeek.map((series)=> (
-              
+                {trendingTvWeek.map((series)=> (              
                   <div key={series.id}>
                     <div className='flex border w-[540px] rounded-xl overflow-hidden drop-shadow-md shadow-md'>
                        <div className=''>
@@ -224,10 +225,8 @@ function Trendings() {
                </div>
 
                {/* trending All Day */}
-               <div className='hidden flex-wrap gap-5' ref={dayRef}>
-               
-                {trendingDay.map((movie)=> (
-                
+               <div className='hidden flex-wrap gap-5' ref={dayRef}>              
+                {trendingDay.map((movie)=> (                
                    <div key={movie.id}>
                      <div className='flex border w-[540px] rounded-xl overflow-hidden drop-shadow-md shadow-md'>
                        <div className=''>
@@ -255,8 +254,7 @@ function Trendings() {
 
                {/* trending All week */}
                <div className='flex flex-wrap gap-5' ref={weekRef}>
-                {trendingweek.map((movie)=> (
-                
+                {trendingweek.map((movie)=> (            
                    <div key={movie.id}>
                      <div className='flex border w-[540px] rounded-xl overflow-hidden drop-shadow-md shadow-md'>
                        <div className=''>
@@ -276,14 +274,13 @@ function Trendings() {
                          </div>
                          <span className='text-sm mt-3'>{movie.overview.substr(0,90)}...</span>
                        </div>
-                    </div>
-                  </div>
-               
+                     </div>
+                   </div>      
                  ))}
                </div>
-            </div>
-          </div>
-        </div>
+             </div>
+           </div>
+         </div>
       </div>
     </div>
   )

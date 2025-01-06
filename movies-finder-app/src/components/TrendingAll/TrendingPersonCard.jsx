@@ -14,7 +14,7 @@ function TrendingPersonCard(props) {
 
   return (
     <div>
-        <div className="flex felx-col items-center w-44 relative">
+        <div className="flex felx-col items-center w-44 mt-5 relative">
             <div className="drop-shadow-lg hover:shadow-xl" >
                 <img className="w-40 rounded-lg drop-shadow-lg" src={`https://image.tmdb.org/t/p/w500${person.profile_path}`}
                      onError={(e)=> {e.target.src = 'https://upload.wikimedia.org/wikipedia/commons/a/a3/Image-not-found.png?20210521171500' }}/>            
