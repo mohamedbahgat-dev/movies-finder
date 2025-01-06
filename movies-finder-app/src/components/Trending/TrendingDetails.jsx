@@ -12,7 +12,7 @@ import { fetchMovieDetails, fetchTvDetails,
    fetchMovieReviews, fetchTvReviews,
    fetchMovieRecommendations, fetchTvRecommendations } from '../../services/tmdbServices'
 import {useMessageStore} from '../../store/useMessageStore'
-import { Modal } from '@material-ui/core'
+import { Modal } from '@mui/material'
 
 
 

@@ -1,6 +1,5 @@
 import { useState, useEffect} from 'react'
-import { useMovieStore } from '../../store/moviesStore'
-import { Modal } from '@material-ui/core'
+import { Modal } from '@mui/material'
 
 function TrendingTrailers(props) {
 
