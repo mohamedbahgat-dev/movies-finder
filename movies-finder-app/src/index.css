@@ -180,14 +180,3 @@
   -o-background-size: cover;
   background-size: cover;
 }
-
-.trending-bg {
-  background-image: url();
-
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  -moz-background-size: cover;
-  -webkit-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
