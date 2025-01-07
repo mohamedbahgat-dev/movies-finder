@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import PagesNavBar from '../PagesNavBar'
+import HomeNavBar from '../Header/NavBar'
 
 function MovieDetails() {
 
@@ -17,7 +17,7 @@ function MovieDetails() {
    
   return (
     <div>
-        <PagesNavBar />   
+        <HomeNavBar />   
         <div>             
           <div>
               <div id='background' className='flex drop-shadow-xl justify-center relative'>
