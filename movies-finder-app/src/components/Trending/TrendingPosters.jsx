@@ -108,12 +108,12 @@ function TrendingPosters() {
     <div>
          <div className='flex items-center gap-5 relative top-14'>
            <h1 className='ml-32 font-poppins text-xl text-white'>Trending Now</h1>
-           <div className='border rounded-3xl border-green-500 font-poppins font-normal text-white '>
-             <button className= {`px-3 rounded-2xl ${posterActive ? 'text-blue-950 bg-gradient-to-r from-green-100 to-green-300 border border-green-400': ''}` }
+           <div className='border rounded-3xl border-cyan-200 font-poppins font-normal text-white '>
+             <button className= {`px-3 rounded-2xl ${posterActive ?  'text-gray-800 bg-gradient-to-r from-sky-100 to-cyan-500 transition-all duration-500': ''}` }
                       onClick={showPosters}
                       >Posters             
              </button>
-             <button className={`px-3 rounded-2xl ${trailerActive ? 'text-blue-950 bg-gradient-to-r from-green-100 to-green-300 border border-green-400': ''}` }
+             <button className={`px-3 rounded-2xl ${trailerActive ? ' text-gray-800 bg-gradient-to-r from-sky-100 to-cyan-500 transition-all duration-500': ''}` }
                       onClick={showTrailers}
                       >See Trailers
              </button>

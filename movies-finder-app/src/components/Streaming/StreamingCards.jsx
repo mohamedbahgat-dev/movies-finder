@@ -129,16 +129,16 @@ function StreamingCards() {
             <div className='flex mt-5'>
                  <span className='ml-[120px] font-poppins text-xl'>Streaming</span>
                  <div className=' flex items-center justify-between ml-8 w-96 text-base border-2 font-semibold rounded-3xl border-cyan-200'>
-                    <button className= {`px-[18px] rounded-2xl ${playingActive ? ' text-green-600 bg-gradient-to-r from-sky-100 to-cyan-500 transition-all duration-500': ''}` }
+                    <button className= {`px-[18px] rounded-2xl ${playingActive ? ' text-gray-800 bg-gradient-to-r from-sky-100 to-cyan-500 transition-all duration-500': ''}` }
                             onClick={showPlayingMovies}
                             >Playing Movies
                      
                     </button>
-                    <button className={`px-[16px] rounded-2xl ${onAirActive?  'text-green-600 bg-gradient-to-r from-sky-100 to-cyan-500 transition-all duration-500': ''}` }
+                    <button className={`px-[16px] rounded-2xl ${onAirActive?   'text-gray-800 bg-gradient-to-r from-sky-100 to-cyan-500 transition-all duration-500': ''}` }
                             onClick={showOnAirTv}
                             >OnTv
                     </button>
-                    <button className={`px-[16px] rounded-2xl ${AiringActive?  'text-green-600 bg-gradient-to-r from-sky-100 to-cyan-500 transition-all duration-500': ''}` }
+                    <button className={`px-[16px] rounded-2xl ${AiringActive?   'text-gray-800 bg-gradient-to-r from-sky-100 to-cyan-500 transition-all duration-500': ''}` }
                             onClick={showAiring}
                             >Airing Today
                     </button>

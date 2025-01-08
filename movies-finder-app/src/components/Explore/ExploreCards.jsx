@@ -132,16 +132,16 @@ function ExploreCards() {
             <div className='flex mt-5'>
                  <span className='ml-[120px] font-poppins text-xl'>Explore Now</span>
                  <div className=' flex items-center justify-between ml-8 w-[450px] text-base border-2 font-semibold rounded-3xl border-cyan-200'>
-                    <button className= {`px-[18px] rounded-2xl ${upcomingActive ? ' text-green-600 bg-gradient-to-r from-sky-100 to-cyan-500 transition-all duration-500': ''}` }
+                    <button className= {`px-[18px] rounded-2xl ${upcomingActive ? ' text-gray-800 bg-gradient-to-r from-sky-100 to-cyan-500 transition-all duration-500': ''}` }
                             onClick={showUpcomingMovies}
                             >Upcoming
                      
                     </button>
-                    <button className={`px-[16px] rounded-2xl ${topRatedMovieActive ?  'text-green-600 bg-gradient-to-r from-sky-100 to-cyan-500 transition-all duration-500': ''}` }
+                    <button className={`px-[16px] rounded-2xl ${topRatedMovieActive ?  ' text-gray-800 bg-gradient-to-r from-sky-100 to-cyan-500 transition-all duration-500': ''}` }
                             onClick={showTopRatedMovies}
                             >Top Rated Movies
                     </button>
-                    <button className={`px-[16px] rounded-2xl ${topRatedTvActive ? 'text-green-600 bg-gradient-to-r from-sky-100 to-cyan-500 transition-all duration-500': ''}` }
+                    <button className={`px-[16px] rounded-2xl ${topRatedTvActive ?  'text-gray-800 bg-gradient-to-r from-sky-100 to-cyan-500 transition-all duration-500': ''}` }
                             onClick={showTopRatedTv}
                             >Top Rated TV
                     </button>
